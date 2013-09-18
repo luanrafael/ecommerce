@@ -1,4 +1,4 @@
-package org.fatec.les.model.cliente;
+package org.fatec.les.model.usuario;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
