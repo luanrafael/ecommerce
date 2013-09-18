@@ -16,7 +16,15 @@ public class Endereco {
 	private String cidade;
 	private String estado;
 	private String pais;
+	private String cep;
 	
+	
+	public String getCep() {
+		return cep;
+	}
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
 	public Long getId() {
 		return id;
 	}
