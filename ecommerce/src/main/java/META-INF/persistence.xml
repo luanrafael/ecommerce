@@ -3,6 +3,7 @@
 	<persistence-unit name="ecommerce" transaction-type="RESOURCE_LOCAL">
 		<class>org.fatec.les.model.usuario.Cliente</class>
 		<class>org.fatec.les.model.usuario.Endereco</class>
+		<class>org.fatec.les.model.usuario.Usuario</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ecommerce"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
