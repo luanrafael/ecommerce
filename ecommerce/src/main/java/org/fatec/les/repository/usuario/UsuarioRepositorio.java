@@ -1,4 +1,4 @@
-package org.fatec.les.repository;
+package org.fatec.les.repository.usuario;
 
 import java.util.List;
 

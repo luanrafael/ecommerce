@@ -3,6 +3,7 @@ package org.fatec.les.model.usuario;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Endereco {
@@ -18,6 +19,8 @@ public class Endereco {
 	private String pais;
 	private String cep;
 	
+	@OneToOne(mappedBy="endereco")
+	private Cliente cliente;
 	
 	public String getCep() {
 		return cep;
