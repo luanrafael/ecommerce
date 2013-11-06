@@ -1,4 +1,4 @@
-package org.fatec.les.model.usuario;
+package org.fatec.les.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Usuario {
+public class UsuarioEntity {
 
 	
 	@Id
@@ -22,8 +22,6 @@ public class Usuario {
 	public Long getId() {
 		return id;
 	}
-<<<<<<< HEAD
-=======
 
 	public void setId(Long id) {
 		this.id = id;
@@ -46,5 +44,4 @@ public class Usuario {
 	}
 
 	
->>>>>>> b7e9751fe21d3292650cc329a09b531459f2de50
 }

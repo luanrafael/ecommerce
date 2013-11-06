@@ -1,4 +1,4 @@
-package org.fatec.les.model.usuario;
+package org.fatec.les.model.entity;
 
 import java.util.Date;
 
@@ -9,10 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
+import org.fatec.les.model.utils.Criptografia;
 
 
 @Entity
-public class Cliente {
+public class ClienteEntity {
 
 	@Id
 	@GeneratedValue
@@ -25,11 +28,14 @@ public class Cliente {
 	private String celular;
 	private String senha;
 	
+	@Transient
+	private Criptografia criptografia = new Criptografia();
+	
 	@Temporal(TemporalType.DATE)
 	private Date data_nascimento;
 	
 	@OneToOne(cascade=CascadeType.ALL)
-	private Endereco endereco;
+	private EnderecoEntity endereco;
 	
 	
 	public String getEmail() {
@@ -84,19 +90,20 @@ public class Cliente {
 		return senha;
 	}
 
-	public void setSenha(String senha) {
-		this.senha = senha;
+	
+	public void setSenha( String senha) {
+		this.senha = criptografia.criptografar(senha);
 	}
 
 	public String getNome() {
 		return nome;
 	}
 	
-	public void setEndereco(Endereco endereco){
+	public void setEndereco(EnderecoEntity endereco){
 		this.endereco = endereco;
 	}
 	
-	public Endereco getEndereco(){
+	public EnderecoEntity getEndereco(){
 		return endereco;
 	}
 	
@@ -116,6 +123,17 @@ public class Cliente {
 		this.nome = nome;
 	}
 	
+	
+	public void setAll(String nome, String email, String senha, String cpf, String telefone, String celular, Date data, EnderecoEntity endereco){
+		setNome(nome);
+		setEmail(email);
+		setSenha(senha);
+		setCpf(cpf);
+		setTelefone(telefone);
+		setCelular(celular);
+		setData_nascimento(data);
+		setEndereco(endereco);
+	}
 	
 	
 }

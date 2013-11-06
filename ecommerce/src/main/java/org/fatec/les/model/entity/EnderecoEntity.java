@@ -1,4 +1,4 @@
-package org.fatec.les.model.usuario;
+package org.fatec.les.model.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Endereco {
+public class EnderecoEntity {
 
 	@Id
 	@GeneratedValue
@@ -20,7 +20,7 @@ public class Endereco {
 	private String cep;
 	
 	@OneToOne(mappedBy="endereco")
-	private Cliente cliente;
+	private ClienteEntity cliente;
 	
 	public String getCep() {
 		return cep;
@@ -69,6 +69,16 @@ public class Endereco {
 	}
 	public void setPais(String pais) {
 		this.pais = pais;
+	}
+	
+	public void setAll(String rua, String Bairro, Integer numero, String cidade, String estado, String pais, String cep){
+		setRua(rua);
+		setBairro(Bairro);
+		setNumero(numero);
+		setCidade(cidade);
+		setEstado(estado);
+		setPais(pais);
+		setCep(cep);
 	}
 	
 	
