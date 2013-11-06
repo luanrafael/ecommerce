@@ -35,8 +35,9 @@ public abstract class BaseRepositorio<T> {
 	}
 
 	public void persist(T entity) {
-		
+		entityManager.getTransaction().begin();
 		entityManager.persist(entity);
+		entityManager.getTransaction().commit();
 	}
 
 	public T merge(T entity) {

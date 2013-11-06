@@ -29,7 +29,7 @@ public class ClienteTest {
 	public void insertClient(){
 		ClienteRepositorio cr = new ClienteRepositorio();
 		cr.persist(c);
-		Assert.assertNotNull(cr.load(1l));
+		Assert.assertNotNull(cr.load(1L));
 	}
 	
 }
