@@ -1,11 +1,13 @@
 package org.fatec.les.model.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import org.fatec.les.model.enuns.MarcaEnum;
+import org.fatec.les.model.enuns.ModeloEnum;
 import org.fatec.les.model.enuns.TamanhoEnum;
 import org.fatec.les.model.enuns.TimeEnum;
 
@@ -15,12 +17,17 @@ public class CamisetaEntity {
 	@Id
 	@GeneratedValue
 	private Long idCamiseta;
+	
 	private MarcaEnum marca;
 	private TamanhoEnum tamanho;
 	private TimeEnum time;
+	private ModeloEnum modelo;
+	
+	@Column(unique=true, length=60)
 	private String descricao;
-	private String modelo;
+
 	private int quantidadeEmEstoque;
+	private Double preco;
 	
 	@ManyToOne
 	private UsuarioEntity usuario;
@@ -42,7 +49,7 @@ public class CamisetaEntity {
 	public String getDescricao() {
 		return descricao;
 	}
-	public String getModelo() {
+	public ModeloEnum getModelo() {
 		return modelo;
 	}
 	public int getQuantidadeEmEstoque() {
@@ -63,7 +70,7 @@ public class CamisetaEntity {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public void setModelo(String modelo) {
+	public void setModelo(ModeloEnum modelo) {
 		this.modelo = modelo;
 	}
 	public void setQuantidadeEmEstoque(int quantidadeEmEstoque) {
@@ -75,10 +82,10 @@ public class CamisetaEntity {
 	public void setUsuario(UsuarioEntity usuario) {
 		this.usuario = usuario;
 	}
-	
-	
-	
-	
-	
-
-}
+	public Double getPreco() {
+		return preco;
+	}
+	public void setPreco(Double preco) {
+		this.preco = preco;
+	}
+}	

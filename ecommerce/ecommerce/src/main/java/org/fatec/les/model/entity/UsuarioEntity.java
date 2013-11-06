@@ -1,13 +1,16 @@
 package org.fatec.les.model.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class UsuarioEntity {
-
 	
 	@Id
 	@GeneratedValue
@@ -19,6 +22,9 @@ public class UsuarioEntity {
 	@Column(length=18)
 	private String senha;
 
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="usuario")
+	private List<CamisetaEntity> camisetas;
+		
 	public Long getId() {
 		return id;
 	}
@@ -41,6 +47,14 @@ public class UsuarioEntity {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public List<CamisetaEntity> getCamisetas() {
+		return camisetas;
+	}
+
+	public void setCamisetas(List<CamisetaEntity> camisetas) {
+		this.camisetas = camisetas;
 	}
 
 	

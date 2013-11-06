@@ -22,9 +22,12 @@ public class UsuarioService {
 		return usuario;
 	}
 	
+	
 	public List<UsuarioEntity> buscarTodos() {
 		List<UsuarioEntity> usuarios = repositorio.loadAll();
 		return usuarios;
 	}
+	
+	
 	
 }
