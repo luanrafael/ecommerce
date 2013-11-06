@@ -18,10 +18,24 @@ public class Cliente {
 	@GeneratedValue
 	private Long id;
 	private String nome;
+	private String email;
+	private String email_alternativo;
+	private String cpf;
+	private String telefone;
+	private String celular;
+	private String senha;
+	
+	@Temporal(TemporalType.DATE)
+	private Date data_nascimento;
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	private Endereco endereco;
+	
+	
 	public String getEmail() {
 		return email;
 	}
-
+	
 	public void setEmail(String email) {
 		this.email = email;
 	}
@@ -77,22 +91,6 @@ public class Cliente {
 	public String getNome() {
 		return nome;
 	}
-
-	private String email;
-	private String email_alternativo;
-	private String cpf;
-	private String telefone;
-	private String celular;
-	
-	@Temporal(TemporalType.DATE)
-	private Date data_nascimento;
-	
-	private String senha;
-	
-	
-	
-	@OneToOne(cascade=CascadeType.ALL)
-	private Endereco endereco;
 	
 	public void setEndereco(Endereco endereco){
 		this.endereco = endereco;
