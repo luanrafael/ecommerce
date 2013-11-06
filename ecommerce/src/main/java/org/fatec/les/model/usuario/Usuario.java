@@ -18,4 +18,8 @@ public class Usuario {
 	
 	@Column(length=18)
 	private String senha;
+
+	public Long getId() {
+		return id;
+	}
 }
