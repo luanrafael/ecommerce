@@ -10,8 +10,11 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.persistence.UniqueConstraint;
 
 import org.fatec.les.model.utils.Criptografia;
+
+import com.timgroup.jgravatar.Gravatar;
 
 
 @Entity
@@ -23,10 +26,12 @@ public class ClienteEntity {
 	private String nome;
 	private String email;
 	private String email_alternativo;
+	
 	private String cpf;
 	private String telefone;
 	private String celular;
-	private String senha;
+	private String senha;	
+	private String urlGravatar;
 	
 	@Transient
 	private Criptografia criptografia = new Criptografia();
@@ -115,16 +120,12 @@ public class ClienteEntity {
 		this.id = id;
 	}
 
-	public String getName() {
-		return nome;
-	}
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 	
 	
-	public void setAll(String nome, String email, String senha, String cpf, String telefone, String celular, Date data, EnderecoEntity endereco){
+	public void setAll(String nome, String email, String emailAternativo,String senha, String cpf, String telefone, String celular, Date data, EnderecoEntity endereco){
 		setNome(nome);
 		setEmail(email);
 		setSenha(senha);
@@ -133,6 +134,16 @@ public class ClienteEntity {
 		setCelular(celular);
 		setData_nascimento(data);
 		setEndereco(endereco);
+		setEmail_alternativo(emailAternativo);
+	}
+
+	public String getUrlGravatar() {
+		return urlGravatar;
+	}
+
+	public void setUrlGravatar(String urlGravatar) {
+		Gravatar gravatar = new Gravatar();
+		this.urlGravatar = gravatar.getUrl(urlGravatar);
 	}
 	
 	
