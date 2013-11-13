@@ -41,11 +41,17 @@ public abstract class BaseRepositorio<T> {
 	}
 
 	public T merge(T entity) {
-		return entityManager.merge(entity);
+		entityManager.getTransaction().begin();
+		T retorno = (T)entityManager.merge(entity);
+		entityManager.getTransaction().commit();
+		return retorno;
+		
 	}
 
 	public void remove(T entity) {
+		entityManager.getTransaction().begin();
 		entityManager.remove(entity);
+		entityManager.getTransaction().commit();
 	}
 	
 	public void deleteById(Object entityId) {
