@@ -10,8 +10,6 @@ import org.fatec.les.model.entity.ClienteEntity;
 import org.fatec.les.model.entity.EnderecoEntity;
 import org.fatec.les.repositorio.ClienteRepositorio;
 
-import com.timgroup.jgravatar.Gravatar;
-
 @ManagedBean
 @ViewScoped
 public class ClienteMB implements Serializable {
