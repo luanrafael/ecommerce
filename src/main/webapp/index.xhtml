@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<title>Camisas</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
@@ -12,8 +13,16 @@
 </h:head>
 
 <h:body class="container-fluid">
+	
+	
+	<ui:composition template="view/template/template.xhtml">
+		<ui:define name="content">
+		
+			<a href="view/cliente/clienteCadastro.xhtml">Cadastro Cliente</a>
+			
+		</ui:define>
+	</ui:composition>
 
-	<a href="view/cliente/clienteCadastro.xhtml">Cadastro Cliente</a>
 
 </h:body>
 </html>
