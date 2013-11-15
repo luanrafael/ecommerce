@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 import org.fatec.les.model.enuns.MarcaEnum;
 import org.fatec.les.model.enuns.TamanhoEnum;
 import org.fatec.les.model.enuns.TimeEnum;
-
+ 
 @Entity
 public class CamisetaEntity {
 	

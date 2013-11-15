@@ -1,20 +1,60 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
 <ui:composition>
 
-	<h:link outcome="index" value="Home" />
+	<h:form>
 
-	<br />
+		<p:menu>
+			<p:submenu label="Paulista">
+				<p:menuitem value="Corinthians" url="http://www.primefaces.org" icon="ui-icon-home" />
+				<p:menuitem value="Nautico" url="http://www.primefaces.org" icon="ui-icon-home" />
+				<p:menuitem value="Ponte Preta" url="http://www.primefaces.org" icon="ui-icon-home" />
+				<p:menuitem value="Portuguesa" url="http://www.primefaces.org" icon="ui-icon-home" />
+				<p:menuitem value="Santos" url="http://www.primefaces.org" icon="ui-icon-home" />
+				<p:menuitem value="São Paulo" url="http://www.primefaces.org" icon="ui-icon-home" />
+			</p:submenu>
 
-	<h:link outcome="splitButton" value="SplitButton" />
+			<p:submenu label="Carioca">
+				<p:menuitem value="Botafogo" url="http://www.primefaces.org" icon="ui-icon-home" />
+				<p:menuitem value="Flamengo" url="http://www.primefaces.org" icon="ui-icon-home" />
+				<p:menuitem value="Fluminense" url="http://www.primefaces.org" icon="ui-icon-home" />
+				<p:menuitem value="Vasco" url="http://www.primefaces.org" icon="ui-icon-home" />
+			</p:submenu>
+			
+			<p:submenu label="Mineiro">
+				<p:menuitem value="Cruzeiro" url="http://www.primefaces.org" icon="ui-icon-home" />
+				<p:menuitem value="Atlético MG" url="http://www.primefaces.org" icon="ui-icon-home" />
+			</p:submenu>
+			
+			<p:submenu label="Gaúcho">
+				<p:menuitem value="Grêmio" url="http://www.primefaces.org" icon="ui-icon-home" />
+				<p:menuitem value="Internacional" url="http://www.primefaces.org" icon="ui-icon-home" />
+			</p:submenu>
+			
+			<p:submenu label="Baiano">
+				<p:menuitem value="Bahia" url="http://www.primefaces.org" icon="ui-icon-home" />
+				<p:menuitem value="Vitória" url="http://www.primefaces.org" icon="ui-icon-home" />
+			</p:submenu>
+			
+			<p:submenu label="Paranaense">
+				<p:menuitem value="Atlético PR" url="http://www.primefaces.org" icon="ui-icon-home" />
+				<p:menuitem value="Coritiba" url="http://www.primefaces.org" icon="ui-icon-home" />
+			</p:submenu>
+			
+			<p:submenu label="Goiano">
+				<p:menuitem value="Goiás" url="http://www.primefaces.org" icon="ui-icon-home" />
+			</p:submenu>
+			
+		</p:menu>
 
-	<br />
+	</h:form>
 
-	<h:link outcome="welcomePrimefaces"
-		value="Página boas-vindas Primefaces" />
-		
-		
+
 </ui:composition>
+
+
 </html>
