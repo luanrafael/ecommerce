@@ -13,7 +13,6 @@ import org.fatec.les.repositorio.PedidoRepositorio;
 @ViewScoped
 public class PedidoMB implements Serializable {
 
-	private static final long serialVersionUID = 1L;
 
 	private PedidoEntity pedido;
 	

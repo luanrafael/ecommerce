@@ -15,8 +15,8 @@ import org.fatec.les.repositorio.ClienteRepositorio;
 @ManagedBean
 @ViewScoped
 public class ClienteMB implements Serializable {
-
 	
+
 	private ClienteEntity cliente;
 	private EnderecoEntity endereco;
 		

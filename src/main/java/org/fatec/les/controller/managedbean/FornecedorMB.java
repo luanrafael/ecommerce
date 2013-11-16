@@ -13,7 +13,6 @@ import org.fatec.les.repositorio.FornecedorRepositorio;
 @ViewScoped
 public class FornecedorMB implements Serializable {
 
-	private static final long serialVersionUID = 1L;
 	
 	private FornecedorEntity fornecedor;
 		
