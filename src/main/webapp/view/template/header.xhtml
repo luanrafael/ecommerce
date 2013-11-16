@@ -3,11 +3,19 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
 <ui:composition>
-	<h:form>
-		<div class="span12">
-			<span>Conteúdo do HEADER, mesma coisa que o footer.</span> <p/><p/><p/>
+	<div class="navbar navbar-inverse">
+		<div class="navbar-inner">
+			<a class="brand" href="#">Título</a>
+			<ul class="nav">
+				<li><a href="/ecommerce/index.xhtml">Início</a></li>
+				<li><a href="/ecommerce/index_bootstrap.xhtml">Início bootstrap</a></li>
+				<h:form class="navbar-form pull-left offset2">
+					<input type="text" class="search-query span5"/>
+				</h:form>
+				<li><a href="/ecommerce/view/cliente/clienteCadastro.xhtml" class="offset2">Login</a></li>
+				<li><a href="#" >Meus Pedidos</a></li>
+			</ul>
 		</div>
-
-	</h:form>
+	</div>
 </ui:composition>
 </html>
