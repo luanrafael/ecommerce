@@ -7,7 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
-import org.fatec.les.controller.util.MsgUtil;
+import org.fatec.les.controller.utils.MsgUtil;
 import org.fatec.les.model.entity.ClienteEntity;
 import org.fatec.les.model.entity.EnderecoEntity;
 import org.fatec.les.repositorio.ClienteRepositorio;
