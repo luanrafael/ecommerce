@@ -12,7 +12,7 @@ import org.fatec.les.repositorio.PedidoRepositorio;
 @ManagedBean
 @ViewScoped
 public class PedidoMB implements Serializable {
-
+adsfadsf
 
 	private PedidoEntity pedido;
 	
