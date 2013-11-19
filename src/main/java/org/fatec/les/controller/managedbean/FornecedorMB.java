@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import org.fatec.les.controller.util.MsgUtil;
+import org.fatec.les.controller.utils.MsgUtil;
 import org.fatec.les.model.entity.FornecedorEntity;
 import org.fatec.les.repositorio.FornecedorRepositorio;
 
