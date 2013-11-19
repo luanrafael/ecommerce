@@ -6,29 +6,73 @@
 
 <ui:composition>
 
-	<h:form>  
-              
-    <p:growl id="messages" autoUpdate="true"/>  
-  
-    <p:panelMenu style="width:200px">  
-        <p:submenu label="Ajax Menuitems">  
-        </p:submenu>  
-        <p:submenu label="Non-Ajax Menuitem">  
-        </p:submenu>  
-        <p:separator />  
-        <p:submenu label="Navigations" >  
-            <p:submenu label="Links" icon="ui-icon-extlink">  
-                <p:submenu label="PrimeFaces" icon="ui-icon-heart">  
-                    <p:menuitem value="Docs" url="http://www.primefaces.org/documentation.html" icon="ui-icon-document" />  
-                    <p:menuitem value="Download" url="http://www.primefaces.org/downloads.html" icon="ui-icon-arrowthick-1-s" />  
-                    <p:menuitem value="Support" url="http://www.primefaces.org/support.html" icon="ui-icon-wrench" />  
-                </p:submenu>  
-            </p:submenu>  
-            <p:menuitem value="Mobile" outcome="/mobile/index" url="#"  icon="ui-icon-signal"/>  
-        </p:submenu>  
-    </p:panelMenu>  
-  
-</h:form> 
+	<h:form>
+
+		<p:growl id="messages" autoUpdate="true" />
+
+		<p:panelMenu style="width:200px">
+			<p:submenu label="Paulista">
+				<p:menuitem value="Corinthians" url="http://www.primefaces.org"
+					icon="ui-icon-home" />
+				<p:menuitem value="Nautico" url="http://www.primefaces.org"
+					icon="ui-icon-home" />
+				<p:menuitem value="Ponte Preta" url="http://www.primefaces.org"
+					icon="ui-icon-home" />
+				<p:menuitem value="Portuguesa" url="http://www.primefaces.org"
+					icon="ui-icon-home" />
+				<p:menuitem value="Santos" url="http://www.primefaces.org"
+					icon="ui-icon-home" />
+				<p:menuitem value="São Paulo" url="http://www.primefaces.org"
+					icon="ui-icon-home" />
+			</p:submenu>
+
+			<p:submenu label="Carioca">
+				<p:menuitem value="Botafogo" url="http://www.primefaces.org"
+					icon="ui-icon-home" />
+				<p:menuitem value="Flamengo" url="http://www.primefaces.org"
+					icon="ui-icon-home" />
+				<p:menuitem value="Fluminense" url="http://www.primefaces.org"
+					icon="ui-icon-home" />
+				<p:menuitem value="Vasco" url="http://www.primefaces.org"
+					icon="ui-icon-home" />
+			</p:submenu>
+
+			<p:submenu label="Mineiro">
+				<p:menuitem value="Cruzeiro" url="http://www.primefaces.org"
+					icon="ui-icon-home" />
+				<p:menuitem value="Atlético MG" url="http://www.primefaces.org"
+					icon="ui-icon-home" />
+			</p:submenu>
+
+			<p:submenu label="Gaúcho">
+				<p:menuitem value="Grêmio" url="http://www.primefaces.org"
+					icon="ui-icon-home" />
+				<p:menuitem value="Internacional" url="http://www.primefaces.org"
+					icon="ui-icon-home" />
+			</p:submenu>
+
+			<p:submenu label="Baiano">
+				<p:menuitem value="Bahia" url="http://www.primefaces.org"
+					icon="ui-icon-home" />
+				<p:menuitem value="Vitória" url="http://www.primefaces.org"
+					icon="ui-icon-home" />
+			</p:submenu>
+
+			<p:submenu label="Paranaense">
+				<p:menuitem value="Atlético PR" url="http://www.primefaces.org"
+					icon="ui-icon-home" />
+				<p:menuitem value="Coritiba" url="http://www.primefaces.org"
+					icon="ui-icon-home" />
+			</p:submenu>
+
+			<p:submenu label="Goiano">
+				<p:menuitem value="Goiás" url="http://www.primefaces.org"
+					icon="ui-icon-home" />
+			</p:submenu>
+
+		</p:panelMenu>
+
+	</h:form>
 
 
 </ui:composition>

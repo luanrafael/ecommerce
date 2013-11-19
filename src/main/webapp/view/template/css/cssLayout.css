@@ -1,15 +1,11 @@
 
 #top {
-    position: relative;
-    background-color: #036fab;
-    color: white;
-    padding: 5px;
-    margin: 0px 0px 10px 0px;
+	position: relative;    
 }
 
 #left {
-    float: left;
-    width: 15%;
+		float: left;
+    width: 20%;
 }
 
 #right {
@@ -19,10 +15,7 @@
 
 #bottom {
     position: relative;
-    background-color: #c2dfef;
-    padding: 5px;
     margin: 10px 50px 0px 0px;
-    margin-top: 70px;
 }
 
 .clear {
