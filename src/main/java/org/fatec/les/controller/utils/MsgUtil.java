@@ -1,4 +1,4 @@
-package org.fatec.les.controller.util;
+package org.fatec.les.controller.utils;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;

@@ -24,7 +24,7 @@ public class ClienteTest {
 		e = new EnderecoEntity();
 		
 		e.setAll("2", "bairro", 61, "cidade", "estado", "pais", "12319000");
-		c.setAll("Luan", "luan@mail.com.br", "senha", null,"123132131231", "1231231321", "1231231", new Date(), e);
+		c.setAll("Luan", "luan@mail.com.br", "senha", "senha","123132131231", "1231231321", "1231231", new Date(), e);
 		mb = new ClienteMB();
 	}
 	
