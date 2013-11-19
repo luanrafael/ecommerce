@@ -1,0 +1,24 @@
+
+#top {
+	position: relative;    
+}
+
+#left {
+		float: left;
+    width: 20%;
+}
+
+#right {
+    float: right;
+    width: 80%;
+}
+
+#bottom {
+    position: relative;
+    margin: 10px 50px 0px 0px;
+}
+
+.clear {
+  clear: both;
+}
+

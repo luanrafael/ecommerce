@@ -13,7 +13,6 @@ import org.fatec.les.repositorio.PedidoRepositorio;
 @ViewScoped
 public class PedidoMB implements Serializable {
 
-
 	private PedidoEntity pedido;
 	
 	public PedidoMB() {

@@ -8,6 +8,7 @@
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link href="/ecommerce/view/template/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+	<link href="/ecommerce/view/template/css/cssLayout.css" rel="stylesheet" media="screen" />
 	<script src="/ecommerce/view/template/js/jquery-latest.js"></script>
 	<script src="/ecommerce/view/template/js/bootstrap.min.js"></script>
 	<title>Ecommerce</title>
@@ -22,17 +23,16 @@
 	
 	
 	<div>
-		<div id="left">
+		<div id="left" class="left_content">
 			<ui:include src="menu.xhtml" />
 		</div>
-		<div id="content" class="left_conten">
+		<div id="right" class="right_content">
 			<ui:insert name="content">Content</ui:insert>
 		</div>
 	</div>
 	
 	
-	
-	<div id="bottom">
+	<div id="bottom" class="clear">
 		<ui:include src="footer.xhtml"/>
 	</div>
 	
