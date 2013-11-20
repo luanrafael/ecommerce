@@ -14,36 +14,34 @@
 	<ui:composition template="view/template/template.xhtml">
 		<ui:define name="content">
 
-			<a href="view/cliente/clienteCadastro.xhtml">Cadastro Cliente</a>
+			<p:dataTable id="tableCar" var="pedido" rows="10" value="#{tableBean.listCars}" paginator="true"
+			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+			rowsPerPageTemplate="5,10,15">
 
+			<p:column sortBy="#{pedido.id}" headerText="Número da compra">
+				<h:outputText value="#{pedido.id}" />
+			</p:column>
 
-			<table>
-				<tr>
-					<td>Número Pedido</td>
-					<td>Cliente</td>
-					<td>Valor</td>
-					<td>Status</td>
-				</tr>
-				
-				<c:forEach items="pedidos" var="pedido">
-					<tr>
-						<td>${pedido.id}</td>
-						<td>${pedido.cliente.nome}</td>
-						<td>${pedido.valor}</td>
-						<td>${pedido.status}</td>
-					</tr>
-				</c:forEach>
-			</table>
+			<p:column sortBy="#{pedido.cliente.nome}" headerText="Cliente">
+				<h:outputText value="#{pedido.cliente.nome}" />
+			</p:column>
 
+			<p:column sortBy="#{pedido.data}" headerText="Data da Compra">
+				<h:outputText value="#{pedido.data}" />
+			</p:column>
 
-
-
+			<p:column sortBy="#{pedido.valor}" headerText="Valor">
+				<h:outputText value="#{pedido.valor}" />
+			</p:column>
+			
+			<p:column sortBy="#{pedido.status}" headerText="Status da Compra">
+				<h:outputText value="#{pedido.status}" />
+			</p:column>
+			
+		</p:dataTable>
 
 		</ui:define>
 	</ui:composition>
-
-
-
 
 </h:body>
 

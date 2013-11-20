@@ -25,6 +25,8 @@ public class PedidoEntity {
 	private Boolean status;
 	
 	private BigDecimal valor;
+	
+	private Integer quantidade;
 
 	public Long getId() {
 		return id;
@@ -72,6 +74,14 @@ public class PedidoEntity {
 
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
+	}
+
+	public Integer getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(Integer quantidade) {
+		this.quantidade = quantidade;
 	}
 	
 }
