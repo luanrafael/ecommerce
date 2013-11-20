@@ -1,1 +1,48 @@
-<!-- aqui o usuário poderá visualizar todos os seus pedidos, apenas listaremos os pedidos do mesmo. -->
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>Lista de Pedidos</title>
+</h:head>
+
+<h:body class="container-fluid">
+	<ui:composition template="view/template/template.xhtml">
+		<ui:define name="content">
+
+			<p:dataTable id="tableCar" var="pedido" rows="10" value="#{tableBean.listCars}" paginator="true"
+			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+			rowsPerPageTemplate="5,10,15">
+
+			<p:column sortBy="#{pedido.id}" headerText="Número da compra">
+				<h:outputText value="#{pedido.id}" />
+			</p:column>
+
+			<p:column sortBy="#{pedido.cliente.nome}" headerText="Cliente">
+				<h:outputText value="#{pedido.cliente.nome}" />
+			</p:column>
+
+			<p:column sortBy="#{pedido.data}" headerText="Data da Compra">
+				<h:outputText value="#{pedido.data}" />
+			</p:column>
+
+			<p:column sortBy="#{pedido.valor}" headerText="Valor">
+				<h:outputText value="#{pedido.valor}" />
+			</p:column>
+			
+			<p:column sortBy="#{pedido.status}" headerText="Status da Compra">
+				<h:outputText value="#{pedido.status}" />
+			</p:column>
+			
+		</p:dataTable>
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>
