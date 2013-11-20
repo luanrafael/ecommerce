@@ -5,6 +5,7 @@
 		<class>org.fatec.les.model.entity.ClienteEntity</class>
 		<class>org.fatec.les.model.entity.UsuarioEntity</class>
 		<class>org.fatec.les.model.entity.CamisetaEntity</class>
+		<class>org.fatec.les.model.entity.FornecedorEntity</class>
 		
 		<properties>
 		

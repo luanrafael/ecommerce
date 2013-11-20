@@ -23,10 +23,12 @@ public class CamisetaEntity {
 	private int quantidadeEmEstoque;
 	
 	@ManyToOne
+	private FornecedorEntity fornecedor;
+	
+	@ManyToOne
 	private UsuarioEntity usuario;
 	
-	//TODO: inserir dependencia de FORNECEDOR
-	
+		
 	public Long getIdCamiseta() {
 		return idCamiseta;
 	}
@@ -75,10 +77,4 @@ public class CamisetaEntity {
 	public void setUsuario(UsuarioEntity usuario) {
 		this.usuario = usuario;
 	}
-	
-	
-	
-	
-	
-
 }
