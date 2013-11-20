@@ -30,7 +30,7 @@ public abstract class BaseRepositorio<T> {
 	}
 
 	public List<T> loadAll() {
-		String sql = "select from " + getTypeClass().getName() +" "+ getTypeClass().getName();
+		String sql = "select c from " + getTypeClass().getSimpleName() + " c ";
 		return entityManager.createQuery(sql).getResultList();
 	}
 

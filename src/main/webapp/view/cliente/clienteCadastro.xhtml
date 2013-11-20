@@ -16,12 +16,9 @@
 <h:body>
 
 
-	<ui:composition template="/view/template/template_bootstrap.xhtml">
+	<ui:composition template="/view/template/template.xhtml">
 		<ui:define name="content" id="right_content">
-			
 
-
-			
 			<h:form id="form">
 				<div class="span3">
 
@@ -53,6 +50,10 @@
 					<h:outputLabel class="control-label" value="Senha "></h:outputLabel>
 					<h:inputText value="#{clienteMB.cliente.senha}" required="true"
 						id="senha" label="Senha" />
+
+					<p:commandButton styleClass="btn btn-block btn-success"
+						action="#{clienteMB.actionCadastrarCliente}" value="Cadastrar"
+						update="msg"></p:commandButton>
 
 				</div>
 
@@ -87,16 +88,15 @@
 					<h:inputText value="#{clienteMB.endereco.cep}" required="true"
 						id="cep" label="Cep" />
 
+					<div>
+						<p:commandButton styleClass="btn btn-block btn-primary"
+							action="#{clienteMB.actionCadastrarCliente}" value="Limpar"
+							update="msg"></p:commandButton>
+						<h:messages id="msg" />
+					</div>
 
 				</div>
 			</h:form>
-			<div class="row-fluid">
-				<div class="offset2">
-					<p:commandButton action="#{clienteMB.actionCadastrarCliente}"
-						value="Cadastrar" update="msg"></p:commandButton>
-				</div>
-				<h:messages id="msg" />
-			</div>
 
 		</ui:define>
 	</ui:composition>

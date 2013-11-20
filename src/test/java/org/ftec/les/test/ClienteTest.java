@@ -37,13 +37,20 @@ public class ClienteTest {
 		c.setNome("Novo Nome");
 		cr.merge(c);
 		Assert.assertEquals("Novo Nome", cr.load(1L).getNome());
+		Assert.assertEquals(1, cr.loadAll().size());
 	}
 	
-	@Test
-	public void testeMB(){
-		mb.setEndereco(e);
-		mb.setCliente(c);
+//	@Test
+//	public void testeMB(){
+//		mb.setEndereco(e);
+//		mb.setCliente(c);
 //		Assert.assertEquals("Luan", mb.actionCadastrarCliente());
-	}
+//	}
+	
+//	@Test
+//	public void listar(){
+//		ClienteRepositorio cr = new ClienteRepositorio();
+//		cr.persist(c);
+//	}
 	
 }
