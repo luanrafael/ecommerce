@@ -5,6 +5,8 @@ import java.sql.Date;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 public class PedidoEntity {
  
@@ -14,8 +16,10 @@ public class PedidoEntity {
 	
 	private Date data;
 	
+	@OneToOne
 	private EnderecoEntity endereco;
 	
+	@ManyToOne
 	private ClienteEntity cliente;
 	
 	private Boolean status;
