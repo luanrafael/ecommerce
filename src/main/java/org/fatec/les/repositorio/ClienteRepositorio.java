@@ -19,5 +19,15 @@ public class ClienteRepositorio extends BaseRepositorio<ClienteEntity>{
 		
 	}
 	
+	public boolean getClienteByEmail(String email){
+		String sql = "Select c from ClienteEntity c where email = ?1";
+		ClienteEntity cliente = (ClienteEntity) entityManager.createQuery(sql).setParameter(1, email).getSingleResult();
+		if (cliente!= null){
+			return true;
+		}
+		return false;
+	}
+	
+	
 	
 }
