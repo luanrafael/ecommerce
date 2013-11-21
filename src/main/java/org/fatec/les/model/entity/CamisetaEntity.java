@@ -11,7 +11,7 @@ import org.fatec.les.model.enuns.TimeEnum;
  
 @Entity
 public class CamisetaEntity {
-	
+	 
 	@Id
 	@GeneratedValue
 	private Long idCamiseta;
