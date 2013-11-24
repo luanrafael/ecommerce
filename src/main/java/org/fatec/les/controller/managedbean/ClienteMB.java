@@ -143,4 +143,8 @@ public class ClienteMB implements Serializable {
 			}
 		}
 	}
+	
+	public void actionAtualizarCliente(){
+		
+	}
 }

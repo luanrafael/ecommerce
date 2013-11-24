@@ -16,7 +16,7 @@
 <h:body>
 
 
-	<ui:composition template="/view/template/template.xhtml">
+	<ui:composition template="/view/template/template_autenticacao.xhtml">
 		<ui:define name="content" id="right_content">
 		
 		
@@ -26,9 +26,9 @@
 			<p:dataGrid var="cliente" value="#{clienteMB.listaClientes}" columns="3" paginator="true">
 				
 				<p:panel header="#{cliente.nome}" style="text-aling:center">
-					<h:commandLink action="#{clienteMB.actionEditar}">			
+					<p:commandLink action="#{clienteMB.actionEditar}">			
 						<p:graphicImage value="#{cliente.urlGravatar}" styleClass="img-circle"/> 
-					</h:commandLink>
+					</p:commandLink>
 					
 				</p:panel>
 			

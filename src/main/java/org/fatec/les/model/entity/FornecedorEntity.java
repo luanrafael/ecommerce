@@ -5,16 +5,15 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
-@Entity
+
 public class FornecedorEntity {
 
 	@Id
 	@GeneratedValue
 	private Long id;
 	
-	@OneToMany(mappedBy="fornecedor")
+//	@OneToMany(mappedBy="fornecedor")
 	private List<CamisetaEntity> camisetas;
 	
 	public Long getId() {
