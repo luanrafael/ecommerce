@@ -5,30 +5,49 @@
 <ui:composition>
 	<div class="navbar navbar-inverse">
 		<div class="navbar-inner">
-			<a class="brand" href="#">Título</a>
+			<a class="brand" href="/ecommerce/index.xhtml">Camisaria da
+				Zoeira</a>
+
+
 			<ul class="nav">
-				<li><a href="/ecommerce/index.xhtml">Início</a></li>
-				<li><a href="/ecommerce/index_bootstrap.xhtml">Início
-						bootstrap</a></li>
 				<h:form class="navbar-form pull-left offset2">
-					<input type="text" class="search-query span5" />
+					<input type="text" class="search-query span4" />
 				</h:form>
-				<li><a href="/ecommerce/view/login/login.xhtml"
-					class="offset2">Login</a></li>
+				<li><a href="/ecommerce/view/login/login.xhtml" class="offset2">Login</a></li>
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#"> Dropdown <b class="caret"></b>
+				</a>
+					<ul class="dropdown-menu" role="menu"
+						aria-labelledby="dropdownMenu">
+						<li><a tabindex="-1"
+							href="/ecommerce/view/cliente/clienteCadastro.xhtml">Cadastrar</a></li>
+						<li><a tabindex="-1"
+							href="/ecommerce/view/cliente/clienteListar.xhtml">Listar</a></li>
+						<li><a tabindex="-1" href="#">Algo a mais aqui</a></li>
+						<li class="divider"></li>
+						<li><a tabindex="-1" href="#">Link separador</a></li>
+					</ul></li>
+
+
+
+
 				<li class="dropdown">
-					<a class="dropdown-toggle"
-						data-toggle="dropdown" href="#"> Dropdown <b class="caret"></b>
-					</a>
-						<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-							<li><a tabindex="-1" href="/ecommerce/view/cliente/clienteCadastro.xhtml">Cadastrar</a></li>
-							<li><a tabindex="-1" href="/ecommerce/view/cliente/clienteListar.xhtml">Listar</a></li>
-							<li><a tabindex="-1" href="#">Algo a mais aqui</a></li>
-							<li class="divider"></li>
-							<li><a tabindex="-1" href="#">Link separador</a></li>
-						</ul>
-		</li>
-		</ul>
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#"> Minha Conta <b class="caret"></b></a>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+						<!-- mudar redirect -->
+						<li><a tabindex="-1" href="/ecommerce/view/cliente/clienteCadastro.xhtml">Configurações</a></li>
+						<li><a tabindex="-1" href="/ecommerce/view/pedido/visualizar-pedidos.xhtml">Visualizar Pedidos</a></li>
+					</ul>
+				</li>
+
+
+			</ul>
+
 		</div>
 	</div>
+
+
+
+
 </ui:composition>
 </html>
