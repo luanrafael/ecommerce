@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Transient;
 
 
-@Entity
+
 public class UsuarioEntity {
 
 	

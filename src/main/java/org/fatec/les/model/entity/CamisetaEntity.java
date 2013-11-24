@@ -1,10 +1,8 @@
 package org.fatec.les.model.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 import org.fatec.les.model.enuns.MarcaEnum;
 import org.fatec.les.model.enuns.TamanhoEnum;
@@ -26,10 +24,7 @@ public class CamisetaEntity {
 	private String descricao;
 	private String modelo;
 	private int quantidadeEmEstoque;
-	
-//	@ManyToOne(cascade = CascadeType.PERSIST)
-//	private FornecedorEntity fornecedor;
-		
+			
 	public Long getIdCamiseta() {
 		return idCamiseta;
 	}
@@ -83,13 +78,5 @@ public class CamisetaEntity {
 	public void setQuantidadeEmEstoque(int quantidadeEmEstoque) {
 		this.quantidadeEmEstoque = quantidadeEmEstoque;
 	}
-	
-//	public FornecedorEntity getFornecedor() {
-//		return fornecedor;
-//	}
-//	
-//	public void setFornecedor(FornecedorEntity fornecedor) {
-//		this.fornecedor = fornecedor;
-//	}
 
 }
