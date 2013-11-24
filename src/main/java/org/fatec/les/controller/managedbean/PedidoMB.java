@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import org.fatec.les.controller.utils.MsgUtil;
+import org.fatec.les.controller.utils.jsfUtils;
 import org.fatec.les.model.entity.PedidoEntity;
 import org.fatec.les.repositorio.PedidoRepositorio;
 
@@ -30,7 +30,7 @@ public class PedidoMB implements Serializable {
 	public void actionCadastrarPedido() {
 		PedidoRepositorio repositorio = new PedidoRepositorio();
 		repositorio.persist(pedido);
-		MsgUtil.addInfo("Pedido inserido com sucesso");
+		jsfUtils.addInfo("Pedido inserido com sucesso");
 	}
 	
 }

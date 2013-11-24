@@ -1,9 +1,11 @@
 package org.fatec.les.controller.utils;
 
+import java.io.IOException;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
-public class MsgUtil {
+public class jsfUtils {
 
 	public static void addInfo(String mensagem) {
 		addMessage(FacesMessage.SEVERITY_INFO, mensagem);
@@ -29,6 +31,10 @@ public class MsgUtil {
 
 	private static FacesContext getCurrentInstance() {
 		return FacesContext.getCurrentInstance();
+	}
+	
+	public static void redirecionar(String endereco) throws IOException{
+		FacesContext.getCurrentInstance().getExternalContext().redirect(endereco);
 	}
 	
 }
