@@ -137,13 +137,21 @@ public class ClienteEntity {
 	}
 
 	public String getUrlGravatar() {
-		return urlGravatar;
+		return this.urlGravatar;
 	}
 
 	public void setUrlGravatar(String urlGravatar) {
-		Gravatar gravatar = new Gravatar();
-		this.urlGravatar = gravatar.getUrl(urlGravatar);
+		this.urlGravatar = verificaGravatar(urlGravatar);
 	}
 	
-	
+	public String verificaGravatar(String url){
+		Gravatar gravatar = new Gravatar();
+		String retorno = null;
+		if (gravatar.download(url) == null){
+			retorno = "/view/template/img/user.png";
+		} else {
+			retorno = gravatar.getUrl(url);
+		}
+		return retorno;
+	}
 }

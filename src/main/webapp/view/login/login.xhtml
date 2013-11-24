@@ -15,25 +15,29 @@
 	<ui:composition template="/view/template/template.xhtml">
 		<ui:define name="content">
 
-			<h:form styleClass="form-horizontal">
+			<h:form styleClass="form-horizontal offset3" id="form">
 				<div class="control-group">
-					<label class="control-label" for="inputEmail">Email</label>
-					<div class="controls">
-						<input type="text" id="inputEmail" placeholder="Email"/>
-					</div>
+
+					<h:outputLabel styleClass="control-label" value="Email "></h:outputLabel>
+					<h:inputText value="#{clienteMB.email}" required="true"
+						id="email" label="Email " />
 				</div>
 				<div class="control-group">
-					<label class="control-label" for="inputPassword">Senha</label>
-					<div class="controls">
-						<input type="password" id="inputPassword" placeholder="Senha"/>
-					</div>
+					<h:outputLabel class="control-label" value="Senha "></h:outputLabel>
+					<h:inputText value="#{clienteMB.senha}" required="true"
+						id="senha" label="Senha" />
 				</div>
 				<div class="control-group">
 					<div class="controls">
-						<label class="checkbox"> <input type="checkbox"/>
-								Lembre-se de mim </label>
-						<button type="submit" class="btn">Entrar</button>
+						<label class="checkbox"> <input type="checkbox" />
+							Lembre-se de mim
+						</label>
+
+						<p:commandButton styleClass="btn btn-success"
+							action="#{clienteMB.actionlogar}" value="Logar"
+							update="msg"></p:commandButton>
 					</div>
+				<h:messages id="msg" />
 				</div>
 			</h:form>
 
