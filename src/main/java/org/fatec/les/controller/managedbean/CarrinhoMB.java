@@ -1,13 +1,8 @@
 package org.fatec.les.controller.managedbean;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
-
-import javax.faces.context.FacesContext;
-import javax.faces.event.ActionEvent;
 
 import org.fatec.les.model.entity.CamisetaEntity;
 
