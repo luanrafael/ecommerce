@@ -14,7 +14,54 @@
 	
 	<ui:composition template="view/template/template.xhtml">
 		<ui:define name="content">
+			<h:form id="form">  
+  
+    <p:dataGrid var="car" value="#{tableBean.cars}" columns="3"  
+        rows="12" paginator="true"  
+        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+        rowsPerPageTemplate="9,12,15">  
+  
+        <p:panel header="#{car.model}" style="text-align:center">  
+            <h:panelGrid columns="1" style="width:100%">  
+                <p:graphicImage value="/images/cars/#{car.manufacturer}.jpg"/>   
+  
+                <h:outputText value="#{car.year}" />  
+  
+                <p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()" title="View Detail">  
+                    <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" />   
+                    <f:setPropertyActionListener value="#{car}"   
+                            target="#{tableBean.selectedCar}" />  
+                </p:commandLink>  
+            </h:panelGrid>  
+        </p:panel>  
+  
+    </p:dataGrid>  
+      
+    <p:dialog header="Car Detail" widgetVar="carDialog" modal="true">  
+        <p:outputPanel id="carDetail" style="text-align:center;">  
+          
+            <p:graphicImage value="/images/cars/#{tableBean.selectedCar.manufacturer}.jpg"/>  
+              
+            <h:panelGrid  columns="2" cellpadding="5">  
+                <h:outputLabel for="modelNo" value="Model No: " />  
+                <h:outputText id="modelNo" value="#{tableBean.selectedCar.model}" />  
+                  
+                <h:outputLabel for="year" value="Year: " />  
+                <h:outputText id="year" value="#{tableBean.selectedCar.year}" />  
+                  
+                <h:outputLabel for="color" value="Color: " />  
+                <h:outputText id="color" value="#{tableBean.selectedCar.color}" style="color:#{tableBean.selectedCar.color}"/>  
+            </h:panelGrid>  
+        </p:outputPanel>  
+    </p:dialog>  
+  
+</h:form>
 			
+			
+			
+			
+			
+<!-- 			as -->
 			
 			<a href="view/pedido/novo-pedido.xhtml">Novos Pedidos</a>
 			

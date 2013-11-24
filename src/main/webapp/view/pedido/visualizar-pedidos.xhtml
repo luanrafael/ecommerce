@@ -11,34 +11,32 @@
 </h:head>
 
 <h:body class="container-fluid">
-	<ui:composition template="view/template/template.xhtml">
+	<ui:composition template="/view/template/template.xhtml">
 		<ui:define name="content">
 
-			<p:dataTable id="tableCar" var="pedido" rows="10" value="#{tableBean.listCars}" paginator="true"
-			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-			rowsPerPageTemplate="5,10,15">
+			<h:form>
 
-			<p:column sortBy="#{pedido.id}" headerText="Número da compra">
-				<h:outputText value="#{pedido.id}" />
-			</p:column>
+				<p:dataTable id="dataTable" var="camiseta" value="#{pedidoMB.camisetas}">
+					<f:facet name="header"> Ajax Sorting </f:facet>
 
-			<p:column sortBy="#{pedido.cliente.nome}" headerText="Cliente">
-				<h:outputText value="#{pedido.cliente.nome}" />
-			</p:column>
+					<p:column sortBy="time" headerText="Model">
+						<h:outputText value="#{camiseta.time}" />
+					</p:column>
 
-			<p:column sortBy="#{pedido.data}" headerText="Data da Compra">
-				<h:outputText value="#{pedido.data}" />
-			</p:column>
+					<p:column sortBy="quantidade" headerText="Quantidade">
+						<h:outputText value="#{camiseta.quantidade}" />
+					</p:column>
 
-			<p:column sortBy="#{pedido.valor}" headerText="Valor">
-				<h:outputText value="#{pedido.valor}" />
-			</p:column>
-			
-			<p:column sortBy="#{pedido.status}" headerText="Status da Compra">
-				<h:outputText value="#{pedido.status}" />
-			</p:column>
-			
-		</p:dataTable>
+					<p:column sortBy="valor" headerText="Valor">
+						<h:outputText value="#{camiseta.valor}" />
+					</p:column>
+
+					<p:column sortBy="data" headerText="Data">
+						<h:outputText value="#{camiseta.data}" />
+					</p:column>
+				</p:dataTable>
+
+			</h:form>
 
 		</ui:define>
 	</ui:composition>

@@ -6,8 +6,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import org.fatec.les.controller.utils.MsgUtil;
+import org.fatec.les.model.entity.CamisetaEntity;
 import org.fatec.les.model.entity.PedidoEntity;
 import org.fatec.les.repositorio.PedidoRepositorio;
+import java.util.ArrayList;  
+import java.util.List;  
 
 @ManagedBean
 @ViewScoped
@@ -15,8 +18,12 @@ public class PedidoMB implements Serializable {
 
 	private PedidoEntity pedido;
 	
+    private List<CamisetaEntity> camisetas;
+	
+	
 	public PedidoMB() {
 		pedido = new PedidoEntity();
+		setCamisetas(new ArrayList<CamisetaEntity>());
 	}
 	
 	public PedidoEntity getPedidoEntity() {
@@ -32,5 +39,13 @@ public class PedidoMB implements Serializable {
 		repositorio.persist(pedido);
 		MsgUtil.addInfo("Pedido inserido com sucesso");
 	}
-	
+
+	public List<CamisetaEntity> getCamisetas() {
+		return camisetas;
+	}
+
+	public void setCamisetas(List<CamisetaEntity> camisetas) {
+		this.camisetas = camisetas;
+	}
+	  
 }
