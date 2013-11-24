@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ComponentSystemEvent;
+import javax.faces.view.ViewScoped;
 import javax.servlet.http.HttpSession;
 
 import org.fatec.les.controller.utils.jsfUtils;
@@ -16,6 +17,7 @@ import org.fatec.les.model.entity.EnderecoEntity;
 import org.fatec.les.repositorio.ClienteRepositorio;
 
 @ManagedBean
+@ViewScoped
 @SessionScoped
 public class ClienteMB implements Serializable {
 	

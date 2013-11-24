@@ -18,28 +18,12 @@
 
 	<ui:composition template="/view/template/template.xhtml">
 		<ui:define name="content" id="right_content">
-
-			<h:form id="form">
-				<div class="row-fluid">
-					<h2>Nome do Produto</h2>
-					<img src="imagem do produto"></img>
-				</div>
-
-				<!-- 			aqui vai a descrição do Produto, a intenção é deixar a foto do lado esquerdo e a descrição no direito -->
-
-				<h:outputLabel class="control-label" value="Quantidade " />
-				<h:inputText value="#{PedidoMB.pedido.quantidade}" required="true"
-					id="quantidade" label="Quantidade" />
-
-				<h:outputLabel class="control-label" value="Valor " />
-				<h:inputText value="#{PedidoMB.pedido.valor}" required="true"
-					id="valor" label="Valor" />
-
-			</h:form>
-			<div class="row-fluid">
+		
+		<div class="row-fluid">
 				<div class="offset2">
-					<p:commandButton action="#{PedidoMB.actionCadastrarPedido}"
-						value="Adicionar ao Carrinho" update="msg"></p:commandButton>
+<!-- 			//TODO trocar a action -->
+					<p:commandButton action="#{PedidoMB.actionCadastrarPedido}" 
+						value="Finalizar Compra!" update="msg"></p:commandButton>
 				</div>
 				<h:messages id="msg" />
 			</div>

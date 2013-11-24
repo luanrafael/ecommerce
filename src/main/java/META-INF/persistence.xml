@@ -7,8 +7,14 @@
 		<class>org.fatec.les.model.entity.ClienteEntity</class>
 		<class>org.fatec.les.model.entity.UsuarioEntity</class>
 		<class>org.fatec.les.model.entity.CamisetaEntity</class>
+<<<<<<< HEAD
 
 		<properties>
+=======
+		<class>org.fatec.les.model.entity.FornecedorEntity</class>
+		<class>org.fatec.les.model.entity.CarrinhoEntity</class>
+		<class>org.fatec.les.model.entity.PedidoEntity</class><properties>
+>>>>>>> a2fc92ff0670a86e6e5cbdba127dd3d3bb326586
 
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.hbm2ddl.auto" value="create"/>
