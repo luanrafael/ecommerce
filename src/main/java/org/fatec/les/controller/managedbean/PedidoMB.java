@@ -1,20 +1,16 @@
 package org.fatec.les.controller.managedbean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-<<<<<<< HEAD
 import org.fatec.les.controller.utils.jsfUtils;
-=======
-import org.fatec.les.controller.utils.MsgUtil;
 import org.fatec.les.model.entity.CamisetaEntity;
->>>>>>> f714e38e6c85c68a660d9078359006a48fb92f0a
 import org.fatec.les.model.entity.PedidoEntity;
 import org.fatec.les.repositorio.PedidoRepositorio;
-import java.util.ArrayList;  
-import java.util.List;  
 
 @ManagedBean
 @ViewScoped
