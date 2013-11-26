@@ -4,10 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Transient;
 
-
-
+@Entity
 public class UsuarioEntity {
 
 	
@@ -18,9 +16,6 @@ public class UsuarioEntity {
 	@Column(unique=true, length=20)
 	private String login;
 	
-	@Transient
-	private boolean autorizado;
-		
 	@Column(length=18)
 	private String senha;
 
@@ -47,13 +42,6 @@ public class UsuarioEntity {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
-	public boolean getAutorizado(){
-		return autorizado;
-	}
-	
-	public void setAutorizado(boolean autorizado){
-		this.autorizado = autorizado;
-	}
+
 	
 }

@@ -19,12 +19,12 @@
 				<div class="control-group">
 
 					<h:outputLabel styleClass="control-label" value="Email "></h:outputLabel>
-					<h:inputText value="#{clienteMB.email}" required="true"
+					<h:inputText value="#{loginMB.email}" required="true"
 						id="email" label="Email " />
 				</div>
 				<div class="control-group">
 					<h:outputLabel class="control-label" value="Senha "></h:outputLabel>
-					<h:inputText value="#{clienteMB.senha}" required="true"
+					<h:inputText value="#{loginMB.senha}" required="true"
 						id="senha" label="Senha" />
 				</div>
 				<div class="control-group">
@@ -34,7 +34,7 @@
 						</label>
 
 						<p:commandButton styleClass="btn btn-success"
-							action="#{clienteMB.actionlogar}" value="Logar"
+							action="#{loginMB.actionLogar}" value="Logar"
 							update="msg"></p:commandButton>
 					</div>
 				<h:messages id="msg" />

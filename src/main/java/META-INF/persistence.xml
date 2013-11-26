@@ -5,12 +5,13 @@
 	<persistence-unit name="ecommerce" transaction-type="RESOURCE_LOCAL">
 		<class>org.fatec.les.model.entity.EnderecoEntity</class>
 		<class>org.fatec.les.model.entity.ClienteEntity</class>
+		<class>org.fatec.les.model.entity.UsuarioEntity</class>
 		<class>org.fatec.les.model.entity.CamisetaEntity</class>
 
-		
 		<properties>
+
 			<property name="hibernate.show_sql" value="true" />
-			<property name="hibernate.hbm2ddl.auto" value="create"/>
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
 
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ecommerce" />

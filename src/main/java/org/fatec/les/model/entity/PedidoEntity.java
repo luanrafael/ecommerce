@@ -3,12 +3,10 @@ package org.fatec.les.model.entity;
 import java.math.BigDecimal;
 import java.sql.Date;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-
 
 public class PedidoEntity {
  
@@ -29,8 +27,6 @@ public class PedidoEntity {
 	private BigDecimal valor;
 	
 	private Integer quantidade;
-	
-	private CamisetaEntity camiseta;
 
 	public Long getId() {
 		return id;
@@ -86,14 +82,6 @@ public class PedidoEntity {
 
 	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
-	}
-
-	public CamisetaEntity getCamiseta() {
-		return camiseta;
-	}
-
-	public void setCamiseta(CamisetaEntity camiseta) {
-		this.camiseta = camiseta;
 	}
 	
 }
