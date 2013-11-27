@@ -21,6 +21,9 @@ public class LoginMB implements Serializable{
 	private String senha;
 	private boolean autorizado;
 
+	public LoginMB() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public boolean isAutorizado() {
 		return autorizado;

@@ -15,12 +15,11 @@
 	<script src="/ecommerce/view/template/js/jquery-latest.js"></script>
 	<script src="/ecommerce/view/template/js/bootstrap.min.js"></script>
 
-	<f:metadata>
-		<f:event listener="#{loginMB.verificarAutorizacao}" type="preRenderView" />
-	</f:metadata>
-
+	
 	<title>Ecommerce</title>
 </h:head>
+
+<f:event listener="#{loginMB.verificarAutorizacao}" type="preRenderView" />
 
 <h:body class="container-fluid">
 
