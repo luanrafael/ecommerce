@@ -1,5 +1,6 @@
 package org.fatec.les.repositorio;
 
+import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 
 @SuppressWarnings("unchecked")
-public abstract class BaseRepositorio<T> {
+public abstract class BaseRepositorio<T> implements Serializable{
 	@PersistenceContext
 	protected EntityManager entityManager;
 	protected EntityManagerFactory entityManagerFactory;

@@ -16,18 +16,19 @@
 <h:body>
 
 
-	<ui:composition template="/view/template/template_autenticacao.xhtml">
+	<ui:composition template="/view/template/template.xhtml">
 		<ui:define name="content" id="right_content">
 		
 		
 		<h:form id="form">
 			
 			
-			<p:dataGrid var="cliente" value="#{clienteMB.listaClientes}" columns="3" paginator="true">
+			<p:dataGrid var="cliente" value="#{clienteMB.listaClientes}" columns="5"  paginator="true">
 				
 				<p:panel header="#{cliente.nome}" style="text-aling:center">
 					<p:commandLink action="#{clienteMB.actionEditar}">			
-						<p:graphicImage value="#{cliente.urlGravatar}" styleClass="img-circle"/> 
+						<p:graphicImage value="#{cliente.urlGravatar}" styleClass="img-circle"/>
+						<f:setPropertyActionListener target="#{clienteMB.id}" value="#{cliente.id}"/> 
 					</p:commandLink>
 					
 				</p:panel>

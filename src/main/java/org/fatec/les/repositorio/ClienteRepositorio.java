@@ -3,7 +3,7 @@ package org.fatec.les.repositorio;
 import org.fatec.les.model.entity.ClienteEntity;
 import org.fatec.les.model.utils.Criptografia;
 
-public class ClienteRepositorio extends BaseRepositorio<ClienteEntity>{
+public class ClienteRepositorio extends BaseRepositorio<ClienteEntity> {
 	
 	public boolean logar(ClienteEntity cliente){
 		

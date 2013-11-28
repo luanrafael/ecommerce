@@ -1,5 +1,6 @@
 package org.fatec.les.model.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -17,7 +18,7 @@ import com.timgroup.jgravatar.Gravatar;
 
 
 @Entity
-public class ClienteEntity {
+public class ClienteEntity implements Serializable{
 
 	@Id
 	@GeneratedValue
@@ -31,7 +32,7 @@ public class ClienteEntity {
 	private String celular;
 	private String senha;	
 	private String urlGravatar;
-	
+	 
 	@Transient
 	private Criptografia criptografia = new Criptografia();
 	
@@ -41,6 +42,10 @@ public class ClienteEntity {
 	@OneToOne(cascade=CascadeType.ALL)
 	private EnderecoEntity endereco;
 	
+	
+	public ClienteEntity() {
+
+	}
 	
 	public String getEmail() {
 		return email;

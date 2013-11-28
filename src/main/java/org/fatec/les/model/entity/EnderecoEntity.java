@@ -1,12 +1,14 @@
 package org.fatec.les.model.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity 
-public class EnderecoEntity {
+public class EnderecoEntity implements Serializable{
 
 	@Id
 	@GeneratedValue

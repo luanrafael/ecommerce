@@ -1,9 +1,10 @@
 package org.fatec.les.model.utils;
 
+import java.io.Serializable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class Criptografia {
+public class Criptografia implements Serializable{
 
 	private static MessageDigest md = null;
 	public Criptografia() {

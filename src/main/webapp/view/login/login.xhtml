@@ -15,27 +15,23 @@
 	<ui:composition template="/view/template/template.xhtml">
 		<ui:define name="content">
 
-			<h:form styleClass="form-horizontal offset3" id="form">
+			<h:form styleClass="form-horizontal offset3" id="form" style="margin-top:10%;">
 				<div class="control-group">
 
-					<h:outputLabel styleClass="control-label" value="Email "></h:outputLabel>
-					<h:inputText value="#{loginMB.email}" required="true"
-						id="email" label="Email " />
+					<h:outputLabel styleClass="control-label" value="Email "/>
+					<h:inputText value="#{loginMB.email}" required="true" id="email" label="Email" style="margin-left:10px;" />
 				</div>
 				<div class="control-group">
-					<h:outputLabel class="control-label" value="Senha "></h:outputLabel>
-					<h:inputText value="#{loginMB.senha}" required="true"
-						id="senha" label="Senha" />
+					<h:outputLabel class="control-label" value="Senha "/>
+					<h:inputText value="#{loginMB.senha}" required="true" id="senha" label="Senha" style="margin-left:10px;" />
 				</div>
 				<div class="control-group">
 					<div class="controls">
-						<label class="checkbox"> <input type="checkbox" />
-							Lembre-se de mim
-						</label>
-
-						<p:commandButton styleClass="btn btn-success"
-							action="#{loginMB.actionLogar}" value="Logar"
-							update="msg"></p:commandButton>
+						<a href="../cliente/clienteCadastro.xhtml">Cadastre-se</a>
+						<br/>
+						<br/>
+						<p:commandButton styleClass="btn btn-success btn-small span2" action="#{loginMB.actionLogar}" value="Logar"
+update="msg"></p:commandButton>
 					</div>
 				<h:messages id="msg" />
 				</div>

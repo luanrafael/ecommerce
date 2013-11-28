@@ -6,9 +6,6 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
-import javax.faces.event.ComponentSystemEvent;
-import javax.servlet.http.HttpSession;
 
 import org.fatec.les.controller.utils.jsfUtils;
 import org.fatec.les.model.entity.ClienteEntity;
@@ -21,14 +18,14 @@ public class ClienteMB implements Serializable {
 	
 
 	private ClienteEntity cliente;
+	private ClienteEntity clienteEdt;
 	private EnderecoEntity endereco;
 	private List<ClienteEntity> listaClientes;
 	private ClienteRepositorio clienteRepositorio;
+	private long id;
 	
 	private String email;
 	private String senha;
-	
-	private boolean autorizado;
 	
 	public ClienteMB() {
 		cliente = new ClienteEntity();
@@ -45,12 +42,11 @@ public class ClienteMB implements Serializable {
 	}	
 	
 	public void actionCadastrarCliente(){
-		
 		cliente.setEndereco(endereco);
 		clienteRepositorio.persist(cliente);
-		jsfUtils.addInfo("Cliente Inserido com sucesso!");
 		try {
 			jsfUtils.redirecionar("../../index.xhtml");
+			jsfUtils.addInfo("Cliente Inserido com sucesso!");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -90,6 +86,7 @@ public class ClienteMB implements Serializable {
 	}
 	
 	public void actionEditar(){
+		clienteEdt = clienteRepositorio.load(id);
 		try {
 			jsfUtils.redirecionar("clienteEditar.xhtml");
 		} catch (IOException e) {
@@ -97,54 +94,23 @@ public class ClienteMB implements Serializable {
 		}
 	}
 
-	public boolean isAutorizado() {
-		return autorizado;
+	public long getId() {
+		return id;
 	}
 
-	public void setAutorizado(boolean autorizado) {
-		this.autorizado = autorizado;
+	public void setId(long id) {
+		this.id = id;
 	}
 
-	public void actionlogar(){
+	public ClienteEntity getClienteEdt() {
+		return clienteEdt;
+	}
 
-		autorizado = clienteRepositorio.logar(email,senha);
-		if(!autorizado){
-			jsfUtils.addError("=( Email ou Senha incorretos, tente novamente!");
-		} else {
-			try {
-				FacesContext contexto = FacesContext.getCurrentInstance();
-				HttpSession sessao = (HttpSession) contexto.getExternalContext().getSession(false);
-				sessao.setAttribute("id", cliente.getId());
-				jsfUtils.redirecionar("../../index.xhtml");
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-	
-	public void actionLogout(){
-		FacesContext contexto = FacesContext.getCurrentInstance();
-		HttpSession sessao = (HttpSession) contexto.getExternalContext().getSession(false);
-		sessao.invalidate();
-		try {
-			jsfUtils.redirecionar("../../index.xhtml");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	
-	public void verificarAutorizacao(ComponentSystemEvent e){
-		if(!autorizado) {
-			try {
-				jsfUtils.redirecionar("/ecommerce/view/login/login.xhtml");
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
-		}
+	public void setClienteEdt(ClienteEntity clienteEdt) {
+		this.clienteEdt = clienteEdt;
 	}
 	
 	public void actionAtualizarCliente(){
-		
+		clienteRepositorio.merge(clienteEdt);
 	}
 }

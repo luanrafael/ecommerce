@@ -15,12 +15,11 @@
 
 <h:body>
 
+
 	<ui:composition template="/view/template/template.xhtml">
-
-
 		<ui:define name="content" id="right_content">
 
-			<h:form id="form">
+			<h:form id="form" styleClass="offset2">
 				<div class="span3">
 
 					<h:outputLabel class="control-label" value="Nome "></h:outputLabel>
@@ -49,12 +48,8 @@
 						id="celular" label="Celular" />
 
 					<h:outputLabel class="control-label" value="Senha "></h:outputLabel>
-					<h:inputText value="#{clienteMB.cliente.senha}" required="true"
+					<h:inputSecret value="#{clienteMB.cliente.senha}" required="true"
 						id="senha" label="Senha" />
-
-					<p:commandButton styleClass="btn btn-block btn-success"
-						action="#{clienteMB.actionCadastrarCliente}" value="Cadastrar"
-						update="msg"></p:commandButton>
 
 				</div>
 
@@ -89,14 +84,15 @@
 					<h:inputText value="#{clienteMB.endereco.cep}" required="true"
 						id="cep" label="Cep" />
 
-					<div>
-						<p:commandButton styleClass="btn btn-block btn-primary"
-							action="#{clienteMB.actionCadastrarCliente}" value="Limpar"
-							update="msg"></p:commandButton>
-						<h:messages id="msg" />
-					</div>
-
 				</div>
+				<hr class="span10" />
+				<div class="row-fluid span12">
+					<p:commandButton styleClass="btn btn-success span4 offset1"
+						action="#{clienteMB.actionCadastrarCliente}" value="Cadastrar"
+						update="msg"></p:commandButton>
+					<h:messages id="msg" />
+				</div>
+				<hr class="span10" />
 			</h:form>
 
 		</ui:define>
