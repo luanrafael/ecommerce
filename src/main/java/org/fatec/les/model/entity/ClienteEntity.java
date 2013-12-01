@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -24,17 +25,17 @@ public class ClienteEntity implements Serializable{
 	@GeneratedValue
 	private Long id;
 	private String nome;
+	
+	@Column(unique=true)
 	private String email;
 	private String email_alternativo;
 	
+	@Column(unique=true)
 	private String cpf;
 	private String telefone;
 	private String celular;
 	private String senha;	
 	private String urlGravatar;
-	 
-	@Transient
-	private Criptografia criptografia = new Criptografia();
 	
 	@Temporal(TemporalType.DATE)
 	private Date data_nascimento;
@@ -101,7 +102,7 @@ public class ClienteEntity implements Serializable{
 
 	
 	public void setSenha( String senha) {
-		this.senha = criptografia.criptografar(senha);
+		this.senha = Criptografia.criptografar(senha);
 	}
 
 	public String getNome() {

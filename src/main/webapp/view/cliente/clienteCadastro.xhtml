@@ -7,11 +7,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<title>Camisas</title>
-	<link href="../../css/bootstrap.min.css" rel="stylesheet"
-		media="screen" />
-	<script src="../../js/jquery-latest.js"></script>
-	<script src="../../js/bootstrap.min.js"></script>
 </h:head>
+
 
 <h:body>
 
@@ -26,8 +23,8 @@
 					<h:inputText value="#{clienteMB.cliente.nome}" required="true"
 						id="nome" label="Nome" />
 
-					<h:outputLabel class="control-label" value="Email "></h:outputLabel>
-					<h:inputText value="#{clienteMB.cliente.email}" required="true"
+					<h:outputLabel class="control-label" value="Email " ></h:outputLabel>
+					<h:inputText value="#{clienteMB.cliente.email}" onchange="validaEmail(this)" required="true"
 						id="email" label="Email" />
 
 					<h:outputLabel class="control-label" value="Email Gravatar"></h:outputLabel>
@@ -35,16 +32,16 @@
 						required="false" id="urlGravatar" label="Email Gravatar" />
 
 					<h:outputLabel class="control-label" value="CPF "></h:outputLabel>
-					<h:inputText value="#{clienteMB.cliente.cpf}" required="true"
+					<h:inputText value="#{clienteMB.cliente.cpf}" onchange="MascaraCPF(this);ValidarCPF(this)" placholder="999.999.999-99" required="true"
 						id="cpf" label="CPF" />
 
 					<h:outputLabel class="control-label" value="Telefone "></h:outputLabel>
-					<h:inputText value="#{clienteMB.cliente.telefone}" required="true"
+					<h:inputText value="#{clienteMB.cliente.telefone}" onchange="MascaraTelefone(this);ValidaTelefone(this)" required="true"
 						id="telefone" label="Telefone" />
 
 
 					<h:outputLabel class="control-label" value="Celular "></h:outputLabel>
-					<h:inputText value="#{clienteMB.cliente.celular}" required="true"
+					<h:inputText value="#{clienteMB.cliente.celular}" onchange="MascaraCelular(this);ValidaCelular(this)" required="true"
 						id="celular" label="Celular" />
 
 					<h:outputLabel class="control-label" value="Senha "></h:outputLabel>
@@ -81,8 +78,8 @@
 						id="pais" label="Pais" />
 
 					<h:outputLabel class="control-label" value="Cep "></h:outputLabel>
-					<h:inputText value="#{clienteMB.endereco.cep}" required="true"
-						id="cep" label="Cep" />
+					<h:inputText value="#{clienteMB.endereco.cep}" onchange="ValidaCep(this);MascaraCep(this);" required="true"
+						id="cep" label="Cep" maxlength="9"/>
 
 				</div>
 				<hr class="span10" />

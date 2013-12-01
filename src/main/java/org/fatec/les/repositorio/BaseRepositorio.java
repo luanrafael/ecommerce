@@ -43,8 +43,16 @@ public abstract class BaseRepositorio<T> implements Serializable{
 
 	public T merge(T entity) {
 		entityManager.getTransaction().begin();
-		T retorno = (T)entityManager.merge(entity);
-		entityManager.getTransaction().commit();
+		T retorno = null;
+		try{
+			retorno = (T) entityManager.merge(entity);			
+			entityManager.getTransaction().commit();
+		} catch (IllegalArgumentException e){
+			retorno = null;
+			e.printStackTrace();
+			e.getCause();
+		}
+		
 		return retorno;
 		
 	}

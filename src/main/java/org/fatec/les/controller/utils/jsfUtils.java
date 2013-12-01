@@ -23,10 +23,9 @@ public class jsfUtils {
 		addMessage(FacesMessage.SEVERITY_FATAL, mensagem);
 	}
 
-	private static void addMessage(FacesMessage.Severity severity,
-			String mensagem) {
-		getCurrentInstance().addMessage(null,
-				new FacesMessage(severity, mensagem, mensagem));
+	private static void addMessage(FacesMessage.Severity severity,String mensagem) {
+		FacesMessage facesMessage = new FacesMessage(severity, "", mensagem);  
+        FacesContext.getCurrentInstance().addMessage(null, facesMessage); 
 	}
 
 	private static FacesContext getCurrentInstance() {
@@ -34,7 +33,7 @@ public class jsfUtils {
 	}
 	
 	public static void redirecionar(String endereco) throws IOException{
-		FacesContext.getCurrentInstance().getExternalContext().redirect(endereco);
+		getCurrentInstance().getExternalContext().redirect(endereco);
 	}
 	
 }

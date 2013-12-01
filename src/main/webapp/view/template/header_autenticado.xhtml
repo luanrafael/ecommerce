@@ -2,7 +2,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	>
 
 <ui:composition>
 	<div class="navbar navbar-inverse">
@@ -14,24 +15,14 @@
 				<h:form class="navbar-form pull-left offset2">
 					<input type="text" class="search-query span4" />
 				</h:form>
-	
-		
-				<li class="dropdown offset5">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#"> Admin <b class="caret"></b></a>
-					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-						<li><a tabindex="-1" href="/ecommerce/view/cliente/clienteCadastro.xhtml">Cadastro Cliente</a></li>
-						<li><a tabindex="-1" href="/ecommerce/view/cliente/clienteListar.xhtml">Listar Clientes</a></li>
-						<li><a tabindex="-1" href="#">Cadastro Camisa</a></li>
-						<li><a tabindex="-1" href="#">Listar Camisas</a></li>
-					</ul>
-				</li>
 
 
-				<li class="dropdown"><a class="dropdown-toggle"
+				<li class="dropdown offset7"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#"> Minha Conta <b class="caret"></b></a>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
 						<!-- mudar redirect -->
-						<li><a tabindex="-1" href="/ecommerce/view/login/login.xhtml">Entrar</a></li>
+						<li><p:commandLink value="Sair" action="#{loginMB.actionLogout}" /></li>
+						<li><p:commandLink value="Editar Perfil" action="#{clienteMB.editarPerfil}" /></li>
 						<li class="divider"></li>
 						<li><a tabindex="-1" href="/ecommerce/view/cliente/clienteCadastro.xhtml">Configurações</a></li>
 						<li><a tabindex="-1" href="/ecommerce/view/pedido/visualizar-pedidos.xhtml">VisualizarPedidos</a></li>

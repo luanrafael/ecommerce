@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -11,20 +12,27 @@
 		rel="stylesheet" media="screen" />
 	<link href="/ecommerce/view/template/css/cssLayout.css"
 		rel="stylesheet" media="screen" />
-<!-- 	<script src="/ecommerce/view/template/js/jquery-latest.js"></script> -->
 	<link href="/ecommerce/view/template/css/bootstrap.min.css" rel="stylesheet" media="screen" />
 	<link href="/ecommerce/view/template/css/cssLayout.css" rel="stylesheet" media="screen" />
 	<link href="/ecommerce/view/template/css/bootstrap.min.css" rel="stylesheet" media="screen" />
 	<link href="/ecommerce/view/template/css/cssLayout.css" rel="stylesheet" media="screen" />
 	<script src="/ecommerce/view/template/js/bootstrap.min.js"></script>
+   	<script type="text/javascript" src="/ecommerce/view/template/js/validador.js"></script>
 
 	<title>Ecommerce</title>
 </h:head>
 
 <h:body class="container-fluid">
 
+
 	<div id="top">
-		<ui:include src="header.xhtml" />
+	
+		<c:if test="${loginMB.autorizado eq false}">
+			<ui:include src="header.xhtml" />
+		</c:if>
+		<c:if test="${loginMB.autorizado eq true}">
+			<ui:include src="header_autenticado.xhtml" />
+		</c:if>
 	</div>
 
 

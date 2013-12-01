@@ -23,18 +23,18 @@
 				</div>
 				<div class="control-group">
 					<h:outputLabel class="control-label" value="Senha "/>
-					<h:inputText value="#{loginMB.senha}" required="true" id="senha" label="Senha" style="margin-left:10px;" />
+					<h:inputSecret value="#{loginMB.senha}" required="true" id="senha" label="Senha" style="margin-left:10px;" />
 				</div>
 				<div class="control-group">
 					<div class="controls">
 						<a href="../cliente/clienteCadastro.xhtml">Cadastre-se</a>
 						<br/>
 						<br/>
-						<p:commandButton styleClass="btn btn-success btn-small span2" action="#{loginMB.actionLogar}" value="Logar"
-update="msg"></p:commandButton>
+						<p:commandButton styleClass="btn btn-success btn-small span2" action="#{loginMB.actionLogar}" value="Logar"></p:commandButton>
 					</div>
-				<h:messages id="msg" />
+					<br/>
 				</div>
+		 	<h:outputText value="#{param['msg']}"  style="color: red;font-weight: bold;" styleClass="offset1"/>
 			</h:form>
 
 		</ui:define>

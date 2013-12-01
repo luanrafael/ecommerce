@@ -6,10 +6,13 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import org.fatec.les.controller.utils.jsfUtils;
 import org.fatec.les.model.entity.ClienteEntity;
 import org.fatec.les.model.entity.EnderecoEntity;
+import org.fatec.les.model.utils.Criptografia;
 import org.fatec.les.repositorio.ClienteRepositorio;
 
 @ManagedBean
@@ -111,6 +114,40 @@ public class ClienteMB implements Serializable {
 	}
 	
 	public void actionAtualizarCliente(){
-		clienteRepositorio.merge(clienteEdt);
+		if(senha.isEmpty() || clienteEdt.getSenha().isEmpty()){
+			try {
+				jsfUtils.redirecionar("clienteEditar.xhtml?msg=Por favor, Confirme sua senha");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		else if(!clienteEdt.getSenha().equals(Criptografia.criptografar(senha))){
+			try {
+				jsfUtils.redirecionar("clienteEditar.xhtml?msg=Por favor, Confirme sua senha");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		else {			
+			clienteRepositorio.merge(clienteEdt);
+			try {
+				jsfUtils.redirecionar("../../index.xhtml");
+				jsfUtils.addInfo("Cliente Atualizado com sucesso!");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void editarPerfil(){
+		FacesContext contexto = FacesContext.getCurrentInstance();
+		HttpSession sessao = (HttpSession) contexto.getExternalContext().getSession(false);
+		String email = (String) sessao.getAttribute("email");
+		clienteEdt  = clienteRepositorio.getClienteByEmail(email);
+		try {
+			jsfUtils.redirecionar("/ecommerce/view/cliente/clienteEditar.xhtml");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

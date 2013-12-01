@@ -26,7 +26,7 @@ public class Criptografia implements Serializable{
 		return hexOutput;
 	}
 
-	public String criptografar(String pwd) {
+	public static String criptografar(String pwd) {
 		if (md != null) {
 			return new String(hexCodes(md.digest(pwd.getBytes())));
 		}

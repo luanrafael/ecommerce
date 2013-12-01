@@ -54,12 +54,17 @@ public class LoginMB implements Serializable{
 		autorizado = clienteRepositorio.logar(email, senha);
 		if (!autorizado) {
 			jsfUtils.addError("=( Email ou Senha incorretos, tente novamente!");
+			try {
+				jsfUtils.redirecionar("/ecommerce/view/login/login.xhtml?msg=Email ou Senha incorretos, tente novamente!");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		} else {
 			try {
 				FacesContext contexto = FacesContext.getCurrentInstance();
-				HttpSession sessao = (HttpSession) contexto
-						.getExternalContext().getSession(false);
-				sessao.setAttribute("id", email);
+				HttpSession sessao = (HttpSession) contexto.getExternalContext().getSession(false);
+				sessao.setAttribute("email", email);
 				jsfUtils.redirecionar("../../index.xhtml");
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -69,11 +74,10 @@ public class LoginMB implements Serializable{
 
 	public void actionLogout() {
 		FacesContext contexto = FacesContext.getCurrentInstance();
-		HttpSession sessao = (HttpSession) contexto.getExternalContext()
-				.getSession(false);
+		HttpSession sessao = (HttpSession) contexto.getExternalContext().getSession(false);
 		sessao.invalidate();
 		try {
-			jsfUtils.redirecionar("../../index.xhtml");
+			jsfUtils.redirecionar("/ecommerce/");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
