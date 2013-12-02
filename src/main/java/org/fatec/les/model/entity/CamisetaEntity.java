@@ -1,64 +1,34 @@
 package org.fatec.les.model.entity;
 
-import javax.persistence.CascadeType;
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-
-import org.fatec.les.model.enuns.MarcaEnum;
-import org.fatec.les.model.enuns.TamanhoEnum;
-import org.fatec.les.model.enuns.TimeEnum;
+import javax.persistence.Lob;
 
 @Entity
-public class CamisetaEntity {
+public class CamisetaEntity implements Serializable{
 	 
 	@Id
 	@GeneratedValue
 	private Long idCamiseta;
 	
-	private MarcaEnum Marca;
-	
-	private TamanhoEnum Tamanho;
-	
-	private TimeEnum Time;
+	private String marca;
+	private String tamanho;
+	private String time;	
 	
 	private String descricao;
 	private String modelo;
 	private int quantidadeEmEstoque;
 	
-//	@ManyToOne(cascade = CascadeType.PERSIST)
-//	private FornecedorEntity fornecedor;
-		
+	@Lob
+	private byte[] imagem;
+			
 	public Long getIdCamiseta() {
 		return idCamiseta;
 	}
 	
-	public MarcaEnum getMarca() {
-		return Marca;
-	}
-
-	public TamanhoEnum getTamanho() {
-		return Tamanho;
-	}
-
-	public TimeEnum getTime() {
-		return Time;
-	}
-
-	public void setMarca(MarcaEnum marca) {
-		Marca = marca;
-	}
-
-	public void setTamanho(TamanhoEnum tamanho) {
-		Tamanho = tamanho;
-	}
-
-
-	public void setTime(TimeEnum time) {
-		Time = time;
-	}
-
 	public String getDescricao() {
 		return descricao;
 	}
@@ -83,13 +53,37 @@ public class CamisetaEntity {
 	public void setQuantidadeEmEstoque(int quantidadeEmEstoque) {
 		this.quantidadeEmEstoque = quantidadeEmEstoque;
 	}
-	
-//	public FornecedorEntity getFornecedor() {
-//		return fornecedor;
-//	}
-//	
-//	public void setFornecedor(FornecedorEntity fornecedor) {
-//		this.fornecedor = fornecedor;
-//	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public void setTamanho(String tamanho) {
+		this.tamanho = tamanho;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public String getTamanho() {
+		return tamanho;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public byte[] getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(byte[] imagem) {
+		this.imagem = imagem;
+	}
 
 }

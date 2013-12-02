@@ -4,7 +4,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"	>
 <h:head>
 	<title>Cadastro de Camiseta</title>
 </h:head>
@@ -14,40 +14,91 @@
 
 	<ui:composition template="/view/template/template.xhtml">
 		<ui:define name="content" id="right_content">
-			
+
 			<div class="span12">
 				<h1>Cadastro de Camiseta</h1>
 			</div>
-			
-			<div class="span4">
-				<h:outputLabel class="control-label" value="Marca" />
-				<h:inputText value="#{camisetaMB.marca}" required="true" id="marca"
-					label="Marca" />
 
-				<h:outputLabel class="control-label" value="Tamanho" />
-				<h:inputText value="#{camisetaMB.tamanho}" required="true"
-					id="tamanho" label="Tamanho" />
+			<h:form id="form" styleClass="offset2" enctype="multipart/form-data">
+				<div class="span6">
 
-				<h:outputLabel class="control-label" value="Time" />
-				<h:inputText value="#{camisetaMB.time}" required="true" id="time"
-					label="Time" />
-			</div>
-			<div class="span4">
+					<h:outputLabel class="control-label" value="Marca" />
+					<h:selectOneMenu value="#{camisetaMB.camisetaEntity.marca}"
+						required="true">
+						<f:selectItem itemValue="" itemLabel="Selecione" />
+						<f:selectItem itemValue="Adidas" itemLabel="Adidas" />
+						<f:selectItem itemValue="Umbro" itemLabel="Umbro" />
+						<f:selectItem itemValue="Pulma" itemLabel="Pulma" />
+					</h:selectOneMenu>
 
-				<h:outputLabel class="control-label" value="Descrição" />
-				<h:inputText value="#{camisetaMB.descrição}" required="true"
-					id="descrição" label="Descrição" />
+					<h:outputLabel class="control-label" value="Tamanho" />
+					<h:selectOneMenu value="#{camisetaMB.camisetaEntity.tamanho}"
+						required="true">
+						<f:selectItem itemValue="" itemLabel="Selecione" />
+						<f:selectItem itemValue="PP" itemLabel="PP" />
+						<f:selectItem itemValue="P" itemLabel="P" />
+						<f:selectItem itemValue="M" itemLabel="M" />
+						<f:selectItem itemValue="G" itemLabel="G" />
+						<f:selectItem itemValue="GG" itemLabel="GG" />
+						<f:selectItem itemValue="EG" itemLabel="EG" />
+					</h:selectOneMenu>
 
-				<h:outputLabel class="control-label" value="Modelo" />
-				<h:inputText value="#{camisetaMB.modelo}" required="true"
-					id="modelo" label="Modelo" />
-				
-				<h:outputLabel class="control-label" value="Quantidade" />
-				<h:inputText value="#{camisetaMB.camiseta.quantidade}"
-					required="true" id="quantidade" label="Quantidade" />
-			</div>
+					<h:outputLabel class="control-label" value="Time" />
+					<h:selectOneMenu value="#{camisetaMB.camisetaEntity.time}"
+						required="true">
+						<f:selectItem itemValue="" itemLabel="Selecione" />
+						<f:selectItem itemValue="Atletico_PR" itemLabel="Atlético-PR" />
+						<f:selectItem itemValue="Atletico_MG" itemLabel="Atlético-MG" />
+						<f:selectItem itemValue="Bahia" itemLabel="Bahia" />
+						<f:selectItem itemValue="Botafogo" itemLabel="Botafogo" />
+						<f:selectItem itemValue="Corinthians" itemLabel="Corinthians" />
+						<f:selectItem itemValue="Coritiba" itemLabel="Coritiba" />
+						<f:selectItem itemValue="Criciema" itemLabel="Criciúma" />
+						<f:selectItem itemValue="Cruzeiro" itemLabel="Cruzeiro" />
+						<f:selectItem itemValue="Flamengo" itemLabel="Flamengo" />
+						<f:selectItem itemValue="Fluminense" itemLabel="Fluminense" />
+						<f:selectItem itemValue="Gremio" itemLabel="Grêmio" />
+						<f:selectItem itemValue="Goias" itemLabel="Goiás" />
+						<f:selectItem itemValue="Internacional" itemLabel="Internacional" />
+						<f:selectItem itemValue="Nautico" itemLabel="Náutico" />
+						<f:selectItem itemValue="Santos" itemLabel="Santos" />
+						<f:selectItem itemValue="Sao_Paulo" itemLabel="São Paulo" />
+						<f:selectItem itemValue="Ponte_Preta" itemLabel="Ponte-Preta" />
+						<f:selectItem itemValue="Portuguesa" itemLabel="Portuguesa" />
+						<f:selectItem itemValue="Vasco" itemLabel="Vasco" />
+						<f:selectItem itemValue="Vitoria" itemLabel="Vitória" />
+					</h:selectOneMenu>
 
+				</div>
 
+				<div class="span6">
+
+					<h:outputLabel class="control-label" value="Descrição" />
+					<h:inputText value="#{camisetaMB.camisetaEntity.descricao}"
+						required="true" id="descrição" label="Descrição" />
+
+					<h:outputLabel class="control-label" value="Modelo" />
+					<h:inputText value="#{camisetaMB.camisetaEntity.modelo}"
+						required="true" id="modelo" label="Modelo" />
+
+					<h:outputLabel class="control-label" value="Quantidade" />
+					<h:inputText
+						value="#{camisetaMB.camisetaEntity.quantidadeEmEstoque}"
+						required="true" id="quantidade" label="Quantidade" />
+				</div>
+
+				<div class="span10 offset1">
+		
+					<p:commandButton action="#{camisetaMB.actionCadastrarCamiseta}"
+						value="Cadastrar">
+					</p:commandButton>
+
+					<p:fileUpload value="#{camisetaMB.file}" mode="advanced" update="messages" auto="true" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>  
+ 					<p:growl id="messages" showDetail="true"/>
+				</div>
+			</h:form>
+	 	<br/>
+	 	<h:outputText value="#{param['msg']}"  style="color: red;font-weight: bold;" styleClass="offset1"/>
 		</ui:define>
 	</ui:composition>
 </h:body>

@@ -23,11 +23,11 @@ public class CamisetaTest {
 	public void cadastrarCamiseta(){
 		camiseta = new CamisetaEntity();		
 		camiseta.setDescricao("camiseta teste");
-		camiseta.setMarca(MarcaEnum.NIKE);
+		camiseta.setMarca("NIKE");
 		camiseta.setModelo("padrao");
 		camiseta.setQuantidadeEmEstoque(10);
-		camiseta.setTamanho(TamanhoEnum.M);
-		camiseta.setTime(TimeEnum.CORINTHIANS);
+		camiseta.setTamanho("M");
+		camiseta.setTime("CORINTHIANS");
 		
 		CamisetaRepositorio repositorio = new CamisetaRepositorio();
 		
