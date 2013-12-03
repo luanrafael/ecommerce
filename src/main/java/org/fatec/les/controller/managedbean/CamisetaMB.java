@@ -8,13 +8,11 @@ import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ComponentSystemEvent;
 
 import org.fatec.les.controller.utils.jsfUtils;
 import org.fatec.les.model.entity.CamisetaEntity;
-import org.fatec.les.model.entity.ClienteEntity;
 import org.fatec.les.repositorio.CamisetaRepositorio;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
@@ -27,7 +25,6 @@ public class CamisetaMB implements Serializable {
 	private CamisetaRepositorio camisetaRepositorio;
 	private UploadedFile file;
 	private List<CamisetaEntity> listaCamisetas;
-	
 
 	public UploadedFile getFile() {
 		return file;
@@ -58,37 +55,37 @@ public class CamisetaMB implements Serializable {
 		camisetaRepositorio = new CamisetaRepositorio();
 	}
 
-
 	public void actionCadastrarCamiseta() {
+		try {
+			jsfUtils.redirecionar("upload.xhtml");
+		} catch (IOException e) {
 			try {
-				jsfUtils.redirecionar("upload.xhtml");
-			} catch (IOException e) {
-				try {
-					jsfUtils.redirecionar("nova-camisa.xhtml?msg=Falha no upload da imagem!");
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
-				e.printStackTrace();
-			}	
+				jsfUtils.redirecionar("nova-camisa.xhtml?msg=Falha no upload da imagem!");
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+		}
 	}
 
 	public void upload(FileUploadEvent event) {
 		String msgEr = "Favor Preencher todos os campos!";
-		if(!camisetaEntity.hasNulo(msgEr)){
+		if (!camisetaEntity.hasNulo(msgEr)) {
 			try {
 				jsfUtils.redirecionar("nova-camisa.xhtml?msg=" + msgEr);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}else{
-			
+		} else {
+
 			file = event.getFile();
 			if (file != null) {
-				FacesMessage msg = new FacesMessage("Succesful", file.getFileName() + " is uploaded.");
+				FacesMessage msg = new FacesMessage("Succesful",
+						file.getFileName() + " is uploaded.");
 				FacesContext.getCurrentInstance().addMessage(null, msg);
 				ByteArrayOutputStream bytesImg = new ByteArrayOutputStream();
 				try {
-					byte[] byteArray = file.getContents(); 
+					byte[] byteArray = file.getContents();
 					bytesImg.close();
 					camisetaEntity.setImagem(byteArray);
 					camisetaRepositorio.persist(camisetaEntity);
@@ -101,7 +98,7 @@ public class CamisetaMB implements Serializable {
 		}
 	}
 	
-	public void listarCamisetas(ComponentSystemEvent ev){
+	public void listarCamisetas(ComponentSystemEvent ev) {
 		setListaCamisetas(camisetaRepositorio.loadAll());
 		getListaCamisetas();
 	}
@@ -113,6 +110,4 @@ public class CamisetaMB implements Serializable {
 	public void setListaCamisetas(List<CamisetaEntity> listaCamisetas) {
 		this.listaCamisetas = listaCamisetas;
 	}
-	
-	
 }

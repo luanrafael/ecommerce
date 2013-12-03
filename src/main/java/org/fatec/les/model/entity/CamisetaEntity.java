@@ -1,18 +1,16 @@
 package org.fatec.les.model.entity;
 
-import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
 import java.io.Serializable;
 
-import javax.imageio.ImageIO;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Transient;
-import javax.swing.ImageIcon;
+
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 
 @Entity
 public class CamisetaEntity implements Serializable{
@@ -30,30 +28,18 @@ public class CamisetaEntity implements Serializable{
 	private int quantidadeEmEstoque;
 	
 	private Double preco;
-	
-	public String getImg() {
-		if(imagem != null){
-			BufferedImage buffer = null; 
-									
-			try {
-				buffer = ImageIO.read(new ByteArrayInputStream(imagem));
-				
-				img = "C:\\Users\\"+System.getProperty("user.name")+"\\AppData\\Local\\Temp\\"+idCamiseta+".jpg";
-				ImageIO.write(buffer, "JPG", new File(img));
-			
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		return img;
+
+	public StreamedContent getFileContent() {
+		return getInputImage();
 	}
 
-	public void setImg(String img) {
-		this.img = img;
+	public void setFileContent(StreamedContent fileContent) {
+		this.fileContent = fileContent;
 	}
+
 
 	@Transient
-	private String img;
+	private StreamedContent fileContent;
 	
 	@Lob
 	private byte[] imagem;
@@ -127,7 +113,22 @@ public class CamisetaEntity implements Serializable{
 	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
+	
+	//	IMAGE
+	public StreamedContent getInputImage() {
 
+		if (imagem != null) {
+			if (imagem.length != 0) {
+				return new DefaultStreamedContent(new ByteArrayInputStream(imagem), "image/jpg",idCamiseta +".jpg");
+			} else {
+				return new DefaultStreamedContent();
+			}
+		} else {
+			return new DefaultStreamedContent();
+		}
+	}
+	
+	
 	public boolean hasNulo(String msg){
 		msg = "Favor preencher o campo ";
 		if(this.marca == null){

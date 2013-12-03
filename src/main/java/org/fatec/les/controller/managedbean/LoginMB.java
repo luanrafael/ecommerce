@@ -57,7 +57,6 @@ public class LoginMB implements Serializable{
 			try {
 				jsfUtils.redirecionar("/ecommerce/view/login/login.xhtml?msg=Email ou Senha incorretos, tente novamente!");
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} else {
@@ -65,7 +64,12 @@ public class LoginMB implements Serializable{
 				FacesContext contexto = FacesContext.getCurrentInstance();
 				HttpSession sessao = (HttpSession) contexto.getExternalContext().getSession(false);
 				sessao.setAttribute("email", email);
-				jsfUtils.redirecionar("../../index.xhtml");
+				if(sessao.getAttribute("pedido") != null){
+					jsfUtils.redirecionar("/ecommerce/view/pedido/confirmarDados.xhtml");
+				} else {					
+					jsfUtils.redirecionar("../../index.xhtml");
+				}
+				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

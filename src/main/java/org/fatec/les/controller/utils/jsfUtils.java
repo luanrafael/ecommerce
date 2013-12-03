@@ -2,7 +2,10 @@ package org.fatec.les.controller.utils;
 
 import java.io.IOException;
 
+import javax.faces.application.Application;
 import javax.faces.application.FacesMessage;
+import javax.faces.application.ViewHandler;
+import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 
 public class jsfUtils {
@@ -23,17 +26,27 @@ public class jsfUtils {
 		addMessage(FacesMessage.SEVERITY_FATAL, mensagem);
 	}
 
-	private static void addMessage(FacesMessage.Severity severity,String mensagem) {
-		FacesMessage facesMessage = new FacesMessage(severity, "", mensagem);  
-        FacesContext.getCurrentInstance().addMessage(null, facesMessage); 
+	private static void addMessage(FacesMessage.Severity severity,
+			String mensagem) {
+		FacesMessage facesMessage = new FacesMessage(severity, "", mensagem);
+		FacesContext.getCurrentInstance().addMessage(null, facesMessage);
 	}
 
-	private static FacesContext getCurrentInstance() {
+	public static FacesContext getCurrentInstance() {
 		return FacesContext.getCurrentInstance();
 	}
-	
-	public static void redirecionar(String endereco) throws IOException{
+
+	public static void redirecionar(String endereco) throws IOException {
 		getCurrentInstance().getExternalContext().redirect(endereco);
 	}
-	
+
+	public static void refresh() {
+		FacesContext context = FacesContext.getCurrentInstance();
+		Application application = context.getApplication();
+		ViewHandler viewHandler = application.getViewHandler();
+		UIViewRoot viewRoot = viewHandler.createView(context, context.getViewRoot().getViewId());
+		context.setViewRoot(viewRoot);
+		context.renderResponse();
+	}
+
 }

@@ -1,13 +1,17 @@
 package org.fatec.les.model.entity;
 
-import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
+@Entity
 public class PedidoEntity {
  
 	@Id
@@ -24,9 +28,17 @@ public class PedidoEntity {
 	
 	private Boolean status;
 	
-	private BigDecimal valor;
+	private Double valor = 0.0;
 	
 	private Integer quantidade;
+	
+	@Transient
+	private List<CamisetaEntity> camisetas;
+	
+	
+	public PedidoEntity() {
+		camisetas = new ArrayList<CamisetaEntity>();
+	}
 
 	public Long getId() {
 		return id;
@@ -68,11 +80,11 @@ public class PedidoEntity {
 		this.status = status;
 	}
 
-	public BigDecimal getValor() {
+	public Double getValor() {
 		return valor;
 	}
 
-	public void setValor(BigDecimal valor) {
+	public void setValor(Double valor) {
 		this.valor = valor;
 	}
 
@@ -82,6 +94,26 @@ public class PedidoEntity {
 
 	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
+	}
+	
+	public void addCamiseta(CamisetaEntity novaCamiseta){
+		valor += novaCamiseta.getPreco();
+		camisetas.add(novaCamiseta);
+		getValor();
+	}
+	
+	public List<CamisetaEntity> getCamisetas() {
+		return camisetas;
+	}
+
+	public void setCamisetas(List<CamisetaEntity> camisetas) {
+		this.camisetas = camisetas;
+	}
+
+	public void rmCamiseta(CamisetaEntity camiseta){
+		valor -= camiseta.getPreco();
+		camisetas.remove(camiseta);
+		getValor();
 	}
 	
 }

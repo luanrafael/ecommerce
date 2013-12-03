@@ -7,10 +7,6 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<title>Pedido</title>
-	<link href="../../css/bootstrap.min.css" rel="stylesheet"
-		media="screen" />
-	<script src="../../js/jquery-latest.js"></script>
-	<script src="../../js/bootstrap.min.js"></script>
 </h:head>
 
 <h:body class="container-fluid">
@@ -24,8 +20,6 @@
 					<h2>Nome do Produto</h2>
 					<img src="imagem do produto"></img>
 				</div>
-
-				<!-- 			aqui vai a descrição do Produto, a intenção é deixar a foto do lado esquerdo e a descrição no direito -->
 
 				<h:outputLabel class="control-label" value="Quantidade " />
 				<h:inputText value="#{PedidoMB.pedido.quantidade}" required="true"
