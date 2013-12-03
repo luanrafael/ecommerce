@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Cadastro de Camiseta</title>
+</h:head>
+
+<h:body class="container-fluid">
+
+
+	<ui:composition template="/view/template/template.xhtml">
+		<ui:define name="content" id="right_content">
+
+			<div class="span12">
+				<h1>Cadastro de Camiseta</h1>
+			</div>
+
+			<h:form id="form" styleClass="offset2">
+				<div class="span6">
+
+					<h:outputLabel class="control-label" value="Marca" />
+					<h:selectOneMenu value="#{camisetaMB.camisetaEntity.marca}"
+						>
+						<f:selectItem itemValue="" itemLabel="Selecione" />
+						<f:selectItem itemValue="Adidas" itemLabel="Adidas" />
+						<f:selectItem itemValue="Umbro" itemLabel="Umbro" />
+						<f:selectItem itemValue="Pulma" itemLabel="Pulma" />
+					</h:selectOneMenu>
+
+					<h:outputLabel class="control-label" value="Tamanho" />
+					<h:selectOneMenu value="#{camisetaMB.camisetaEntity.tamanho}"
+						>
+						<f:selectItem itemValue="" itemLabel="Selecione" />
+						<f:selectItem itemValue="PP" itemLabel="PP" />
+						<f:selectItem itemValue="P" itemLabel="P" />
+						<f:selectItem itemValue="M" itemLabel="M" />
+						<f:selectItem itemValue="G" itemLabel="G" />
+						<f:selectItem itemValue="GG" itemLabel="GG" />
+						<f:selectItem itemValue="EG" itemLabel="EG" />
+					</h:selectOneMenu>
+
+					<h:outputLabel class="control-label" value="Time" />
+					<h:selectOneMenu value="#{camisetaMB.camisetaEntity.time}"
+						>
+						<f:selectItem itemValue="" itemLabel="Selecione" />
+						<f:selectItem itemValue="Atletico_PR" itemLabel="Atlético-PR" />
+						<f:selectItem itemValue="Atletico_MG" itemLabel="Atlético-MG" />
+						<f:selectItem itemValue="Bahia" itemLabel="Bahia" />
+						<f:selectItem itemValue="Botafogo" itemLabel="Botafogo" />
+						<f:selectItem itemValue="Corinthians" itemLabel="Corinthians" />
+						<f:selectItem itemValue="Coritiba" itemLabel="Coritiba" />
+						<f:selectItem itemValue="Criciema" itemLabel="Criciúma" />
+						<f:selectItem itemValue="Cruzeiro" itemLabel="Cruzeiro" />
+						<f:selectItem itemValue="Flamengo" itemLabel="Flamengo" />
+						<f:selectItem itemValue="Fluminense" itemLabel="Fluminense" />
+						<f:selectItem itemValue="Gremio" itemLabel="Grêmio" />
+						<f:selectItem itemValue="Goias" itemLabel="Goiás" />
+						<f:selectItem itemValue="Internacional" itemLabel="Internacional" />
+						<f:selectItem itemValue="Nautico" itemLabel="Náutico" />
+						<f:selectItem itemValue="Santos" itemLabel="Santos" />
+						<f:selectItem itemValue="Sao_Paulo" itemLabel="São Paulo" />
+						<f:selectItem itemValue="Ponte_Preta" itemLabel="Ponte-Preta" />
+						<f:selectItem itemValue="Portuguesa" itemLabel="Portuguesa" />
+						<f:selectItem itemValue="Vasco" itemLabel="Vasco" />
+						<f:selectItem itemValue="Vitoria" itemLabel="Vitória" />
+					</h:selectOneMenu>
+
+				</div>
+
+				<div class="span6">
+
+					<h:outputLabel class="control-label" value="Descrição" />
+					<h:inputText value="#{camisetaMB.camisetaEntity.descricao}" id="descrição" label="Descrição" />
+
+					<h:outputLabel class="control-label" value="Modelo" />
+					<h:inputText value="#{camisetaMB.camisetaEntity.modelo}"
+						 id="modelo" label="Modelo" />
+
+					<h:outputLabel class="control-label" value="Quantidade" />
+					<h:inputText
+						value="#{camisetaMB.camisetaEntity.quantidadeEmEstoque}"
+						 id="quantidade" label="Quantidade" />
+					
+					<h:outputLabel class="control-label" value="Preço" />
+					<h:inputText value="#{camisetaMB.camisetaEntity.preco}" id="preco" label="Preço"></h:inputText>
+				</div>
+
+				<div class="span10 offset1">
+					<p:commandButton action="#{camisetaMB.actionCadastrarCamiseta}" onkeypress="mascararPreco(this)" value="Cadastrar">
+					</p:commandButton>
+				</div>
+			</h:form>
+			
+			<br />
+			<h:outputText value="#{param['msg']}" style="color: red;font-weight: bold;" styleClass="offset1" />
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
+

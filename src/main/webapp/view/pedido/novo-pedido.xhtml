@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Pedido</title>
+</h:head>
+
+<h:body class="container-fluid">
+
+
+	<ui:composition template="/view/template/template.xhtml">
+		<ui:define name="content" id="right_content">
+
+			<h:form id="form">
+				<div class="row-fluid">
+					<h2>Nome do Produto</h2>
+					<img src="imagem do produto"></img>
+				</div>
+
+				<h:outputLabel class="control-label" value="Quantidade " />
+				<h:inputText value="#{PedidoMB.pedido.quantidade}" required="true"
+					id="quantidade" label="Quantidade" />
+
+				<h:outputLabel class="control-label" value="Valor " />
+				<h:inputText value="#{PedidoMB.pedido.valor}" required="true"
+					id="valor" label="Valor" />
+
+			</h:form>
+			<div class="row-fluid">
+				<div class="offset2">
+					<p:commandButton action="#{PedidoMB.actionCadastrarPedido}"
+						value="Adicionar ao Carrinho" update="msg"></p:commandButton>
+				</div>
+				<h:messages id="msg" />
+			</div>
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

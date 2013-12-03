@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+	<title>Camisas</title>
+</h:head>
+
+
+<h:body class="container-fluid">
+
+
+	<ui:composition template="view/template/template_index.xhtml">
+		<ui:define name="content">
+			<h:form id="form">
+				<p:dataGrid var="camiseta" value="#{camisetaMB.listaCamisetas}"
+					columns="5" paginator="true">
+
+					<p:panel header="#{camiseta.marca}" style="text-aling:center;">
+						<p:commandLink action="#{pedidoMB.abrirCamiseta}">						
+							<p:graphicImage value="/view/template/img/camiseta.jpg" styleClass="img-square" width="80px" height="80px"/>
+							<f:setPropertyActionListener target="#{pedidoMB.id}" value="#{camiseta.idCamiseta}"/> 
+						</p:commandLink>
+						<h:outputLabel value="Tamanho: #{camiseta.tamanho}" />
+						<h:outputLabel value="Preço: #{camiseta.preco}" />
+					</p:panel>
+
+				</p:dataGrid>
+				<h:outputText value="#{pedidoMB.pedido.valor}" id="valor"></h:outputText>
+			</h:form>
+
+
+
+			<a href="view/pedido/novo-pedido.xhtml">Novos Pedidos</a>
+
+			<a href="view/pagamento/pagamento.xhtml">Pagamentos</a>
+
+			<a href="view/pedido/confirmar-dados.xhtml">Confirmar Endereço</a>
+
+		</ui:define>
+	</ui:composition>
+
+
+</h:body>
+</html>

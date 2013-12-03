@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Camisas</title>
+	<link href="../../css/bootstrap.min.css" rel="stylesheet"
+		media="screen" />
+	<script src="../../js/jquery-latest.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
+	
+</h:head>
+
+<h:body>
+
+
+	<ui:composition template="/view/template/template.xhtml">
+		<ui:define name="content" id="right_content">
+			<h:form id="form">
+				<div class="span3">
+
+					<h:outputLabel class="control-label" value="Nome "></h:outputLabel>
+					<h:inputText value="#{clienteMB.clienteEdt.nome}" required="true"
+						id="nome" label="Nome" />
+
+					<h:outputLabel class="control-label" value="Email"></h:outputLabel>
+					<h:inputText value="#{clienteMB.clienteEdt.email}" onchange="validaEmail(this)" required="true"
+						id="email" label="Email" />
+
+					<h:outputLabel class="control-label" value="CPF "></h:outputLabel>
+					<h:inputText value="#{clienteMB.clienteEdt.cpf}" onchange="MascaraCPF(this);ValidarCPF(this)" required="true"
+						id="cpf" label="CPF" />
+
+					<h:outputLabel class="control-label" value="Telefone "></h:outputLabel>
+					<h:inputText value="#{clienteMB.clienteEdt.telefone}" onchange="MascaraTelefone(this);ValidaTelefone(this)" required="true"
+						id="telefone" label="Telefone" />
+
+
+					<h:outputLabel class="control-label" value="Celular "></h:outputLabel>
+					<h:inputText value="#{clienteMB.clienteEdt.celular}" onchange="MascaraCelular(this);ValidaCelular(this)" required="true"
+						id="celular" label="Celular" />
+
+					<h:outputLabel class="control-label" value="Senha "></h:outputLabel>
+					<p:password value="#{clienteMB.clienteEdt.senha}" id="senha" label="Senha" />
+
+					<h:outputLabel class="control-label" value="Confirme sua senha "></h:outputLabel>
+					<p:password value="#{clienteMB.senha}" id="senha2" label="Senha2" />
+
+					<p:commandButton styleClass="btn btn-block btn-success"
+						action="#{clienteMB.actionAtualizarCliente}" value="Atualizar"
+						update="msg"></p:commandButton>
+
+				</div>
+
+				<div class="span3">
+
+
+					<h:outputLabel class="control-label" value="Rua "></h:outputLabel>
+					<h:inputText value="#{clienteMB.clienteEdt.endereco.rua}" required="true"
+						id="rua" label="Rua" />
+
+					<h:outputLabel class="control-label" value="Numero "></h:outputLabel>
+					<h:inputText value="#{clienteMB.clienteEdt.endereco.numero}" required="true"
+						id="numero" label="Numero" />
+
+					<h:outputLabel class="control-label" value="Bairro "></h:outputLabel>
+					<h:inputText value="#{clienteMB.clienteEdt.endereco.bairro}" required="true"
+						id="bairro" label="Bairro" />
+
+					<h:outputLabel class="control-label" value="Cidade "></h:outputLabel>
+					<h:inputText value="#{clienteMB.clienteEdt.endereco.cidade}" required="true"
+						id="cidade" label="Cidade" />
+
+					<h:outputLabel class="control-label" value="Estado "></h:outputLabel>
+					<h:inputText value="#{clienteMB.clienteEdt.endereco.estado}" required="true"
+						id="estado" label="Estado" />
+
+					<h:outputLabel class="control-label" value="Pais "></h:outputLabel>
+					<h:inputText value="#{clienteMB.clienteEdt.endereco.pais}" required="true"
+						id="pais" label="Pais" />
+
+					<h:outputLabel class="control-label" value="Cep "></h:outputLabel>
+					<h:inputText value="#{clienteMB.clienteEdt.endereco.cep}" onchange="ValidaCep(this);MascaraCep(this);" required="true"
+						id="cep" label="Cep" />
+
+						<h:messages id="msg" />
+				</div>
+				<h:outputText value="#{param['msg']}"  style="color: red;font-weight: bold;" styleClass="offset1"/>
+			</h:form>
+		
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

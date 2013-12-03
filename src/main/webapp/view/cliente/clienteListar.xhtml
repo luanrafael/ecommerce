@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Camisas</title>
+</h:head>
+
+<h:body>
+
+
+	<ui:composition template="/view/template/template_autenticacao.xhtml">
+		<ui:define name="content" id="right_content">
+		
+		
+		<h:form id="form">
+			
+			
+			<p:dataGrid var="cliente" value="#{clienteMB.listaClientes}" columns="5"  paginator="true">
+				
+				<p:panel header="#{cliente.nome}" style="text-aling:center">
+					<p:commandLink action="#{clienteMB.actionEditar}">			
+						<p:graphicImage value="#{cliente.urlGravatar}" styleClass="img-circle"/>
+						<f:setPropertyActionListener target="#{clienteMB.id}" value="#{cliente.id}"/> 
+					</p:commandLink>
+					
+				</p:panel>
+			
+			</p:dataGrid>
+			
+		</h:form>
+			
+		
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

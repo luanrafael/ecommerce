@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Camisas</title>
+</h:head>
+
+<h:body class="container-fluid">
+
+
+	<ui:composition template="/view/template/template.xhtml">
+		<ui:define name="content">
+
+			<h:form styleClass="form-horizontal offset3" id="form" style="margin-top:10%;">
+				<div class="control-group">
+
+					<h:outputLabel styleClass="control-label" value="Email "/>
+					<h:inputText value="#{loginMB.email}" required="true" id="email" label="Email" style="margin-left:10px;" />
+				</div>
+				<div class="control-group">
+					<h:outputLabel class="control-label" value="Senha "/>
+					<h:inputSecret value="#{loginMB.senha}" required="true" id="senha" label="Senha" style="margin-left:10px;" />
+				</div>
+				<div class="control-group">
+					<div class="controls">
+						<a href="../cliente/clienteCadastro.xhtml">Cadastre-se</a>
+						<br/>
+						<br/>
+						<p:commandButton styleClass="btn btn-success btn-small span2" action="#{loginMB.actionLogar}" value="Logar"></p:commandButton>
+					</div>
+					<br/>
+				</div>
+		 	<h:outputText value="#{param['msg']}"  style="color: red;font-weight: bold;" styleClass="offset1"/>
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+
+
+</h:body>
+</html>

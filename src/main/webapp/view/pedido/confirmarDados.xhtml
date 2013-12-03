@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Confirmar Endereço</title>
+	<link href="../../css/bootstrap.min.css" rel="stylesheet"
+		media="screen" />
+	<script src="../../js/jquery-latest.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
+</h:head>
+
+<h:body class="container-fluid">
+
+
+	<ui:composition template="/view/template/template_autenticacao.xhtml">
+		<ui:define name="content" id="right_content">
+			<div class="span12">
+				<h1>Confirmação de Dados</h1>
+			</div>
+
+			<div class="span4">
+
+				<h:outputLabel class="control-label" value="Rua" />
+				<h:inputText value="#{PedidoMB.pedido.cliente.endereco.rua}"
+					required="true" id="rua" label="Rua" />
+
+				<h:outputLabel class="control-label" value="Número" />
+				<h:inputText value="#{PedidoMB.pedido.cliente.endereco.numero}"
+					required="true" id="numero" label="Número" />
+
+				<h:outputLabel class="control-label" value="CEP" />
+				<h:inputText value="#{PedidoMB.pedido.cliente.endereco.cep}"
+					required="true" id="cep" label="CEP" />
+
+			</div>
+
+			<div class="span4">
+				<h:outputLabel class="control-label" value="Bairro" />
+				<h:inputText value="#{PedidoMB.pedido.cliente.endereco.bairro}"
+					required="true" id="bairro" label="Bairro" />
+
+				<h:outputLabel class="control-label" value="Cidade" />
+				<h:inputText value="#{PedidoMB.pedido.cliente.endereco.cidade}"
+					required="true" id="cidade" label="Cidade" />
+
+				<h:outputLabel class="control-label" value="Estado" />
+				<h:inputText value="#{PedidoMB.pedido.cliente.endereco.estado}"
+					required="true" id="estado" label="Estado" />
+			</div>
+			<div class="span4">
+				<h:outputLabel class="control-label" value="Quantidade" />
+				<h:inputText value="#{PedidoMB.pedido.quantidade}" required="true"
+					id="quantidade" label="Quantidade" />
+
+				<h:outputLabel class="control-label" value="Valor Total" />
+				<h:inputText value="#{PedidoMB.pedido.valor}" required="true"
+					id="valor" label="Valor Total" />
+			</div>
+
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

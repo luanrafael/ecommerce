@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Pedido</title>
+</h:head>
+
+<h:body class="container-fluid">
+
+
+	<ui:composition template="/view/template/template_autenticacao.xhtml">
+		<ui:define name="content" id="right_content">
+			
+			<h:form id="form" class="span6">
+				<p:panel header="#{pedidoMB.camisetaEntity.time}" styleClass="span6">
+					<p:graphicImage value="/view/template/img/camiseta.jpg" width="200px" height="200px"/>
+					<h3>R$ #{pedidoMB.camisetaEntity.preco}</h3>
+					<h4>Tamanho: #{pedidoMB.camisetaEntity.tamanho}</h4>
+					<p:commandButton value="COMPRAR" action="#{pedidoMB.actionComprar}"></p:commandButton>
+					<p:commandLink>
+						carrinho
+					</p:commandLink>
+				</p:panel>
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

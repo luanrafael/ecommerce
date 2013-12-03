@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>Lista de Pedidos</title>
+</h:head>
+
+<h:body class="container-fluid">
+	<ui:composition template="/view/template/template.xhtml">
+		<ui:define name="content">
+
+			<h:form>
+
+				<p:dataTable id="dataTable" var="camiseta" value="#{pedidoMB.camisetas}">
+					<f:facet name="header"> Ajax Sorting </f:facet>
+
+					<p:column sortBy="time" headerText="Model">
+						<h:outputText value="#{camiseta.time}" />
+					</p:column>
+
+					<p:column sortBy="quantidade" headerText="Quantidade">
+						<h:outputText value="#{camiseta.quantidade}" />
+					</p:column>
+
+					<p:column sortBy="valor" headerText="Valor">
+						<h:outputText value="#{camiseta.valor}" />
+					</p:column>
+
+					<p:column sortBy="data" headerText="Data">
+						<h:outputText value="#{camiseta.data}" />
+					</p:column>
+				</p:dataTable>
+
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>
