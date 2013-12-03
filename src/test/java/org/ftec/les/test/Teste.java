@@ -21,9 +21,10 @@ public class Teste {
 //	}
 	
 	public static void main(String[] args) {
-		Gravatar gr = new Gravatar();
-		byte[] aa = gr.download("teste@mail.com");
-		System.out.println(aa);
+//		Gravatar gr = new Gravatar();
+//		byte[] aa = gr.download("teste@mail.com");
+//		System.out.println(aa);
+		System.out.println(System.getProperty("user.name"));
 	}
 	
 	

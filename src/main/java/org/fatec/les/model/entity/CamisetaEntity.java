@@ -1,11 +1,18 @@
 package org.fatec.les.model.entity;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
 
+import javax.imageio.ImageIO;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.Transient;
+import javax.swing.ImageIcon;
 
 @Entity
 public class CamisetaEntity implements Serializable{
@@ -21,6 +28,32 @@ public class CamisetaEntity implements Serializable{
 	private String descricao;
 	private String modelo;
 	private int quantidadeEmEstoque;
+	
+	private Double preco;
+	
+	public String getImg() {
+		if(imagem != null){
+			BufferedImage buffer = null; 
+									
+			try {
+				buffer = ImageIO.read(new ByteArrayInputStream(imagem));
+				
+				img = "C:\\Users\\"+System.getProperty("user.name")+"\\AppData\\Local\\Temp\\"+idCamiseta+".jpg";
+				ImageIO.write(buffer, "JPG", new File(img));
+			
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+	@Transient
+	private String img;
 	
 	@Lob
 	private byte[] imagem;
@@ -86,4 +119,37 @@ public class CamisetaEntity implements Serializable{
 		this.imagem = imagem;
 	}
 
+	
+	public Double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(Double preco) {
+		this.preco = preco;
+	}
+
+	public boolean hasNulo(String msg){
+		msg = "Favor preencher o campo ";
+		if(this.marca == null){
+			msg += "marca";
+			return false;
+		}
+		if(this.time == null){
+			msg += "time";
+			return false;
+		}
+		if(this.tamanho == null){
+			msg += "tamanho";
+			return false;
+		}
+		if(this.quantidadeEmEstoque <= 0){
+			msg = "O campo Quantidade não pode ser igual ou menor que 0";
+			return false;
+		}
+		if(this.preco <= 0){
+			msg = "O campo Preço não pode ser igual ou menor que 0";
+			return false;
+		}
+		return true;
+	}
 }

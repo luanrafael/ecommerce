@@ -19,7 +19,7 @@
 				<p:dataGrid var="camiseta" value="#{camisetaMB.listaCamisetas}" columns="5"  paginator="true">
 				
 				<p:panel header="#{camiseta.marca}" style="text-aling:center">
-					
+					<p:graphicImage value="#{camiseta.img}" styleClass="img-circle"/>
 				</p:panel>
 			
 			</p:dataGrid>

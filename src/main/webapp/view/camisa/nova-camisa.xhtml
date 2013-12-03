@@ -4,7 +4,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://java.sun.com/jsf/facelets"	>
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<title>Cadastro de Camiseta</title>
 </h:head>
@@ -19,12 +19,12 @@
 				<h1>Cadastro de Camiseta</h1>
 			</div>
 
-			<h:form id="form" styleClass="offset2" enctype="multipart/form-data">
+			<h:form id="form" styleClass="offset2">
 				<div class="span6">
 
 					<h:outputLabel class="control-label" value="Marca" />
 					<h:selectOneMenu value="#{camisetaMB.camisetaEntity.marca}"
-						required="true">
+						>
 						<f:selectItem itemValue="" itemLabel="Selecione" />
 						<f:selectItem itemValue="Adidas" itemLabel="Adidas" />
 						<f:selectItem itemValue="Umbro" itemLabel="Umbro" />
@@ -33,7 +33,7 @@
 
 					<h:outputLabel class="control-label" value="Tamanho" />
 					<h:selectOneMenu value="#{camisetaMB.camisetaEntity.tamanho}"
-						required="true">
+						>
 						<f:selectItem itemValue="" itemLabel="Selecione" />
 						<f:selectItem itemValue="PP" itemLabel="PP" />
 						<f:selectItem itemValue="P" itemLabel="P" />
@@ -45,7 +45,7 @@
 
 					<h:outputLabel class="control-label" value="Time" />
 					<h:selectOneMenu value="#{camisetaMB.camisetaEntity.time}"
-						required="true">
+						>
 						<f:selectItem itemValue="" itemLabel="Selecione" />
 						<f:selectItem itemValue="Atletico_PR" itemLabel="Atlético-PR" />
 						<f:selectItem itemValue="Atletico_MG" itemLabel="Atlético-MG" />
@@ -74,31 +74,29 @@
 				<div class="span6">
 
 					<h:outputLabel class="control-label" value="Descrição" />
-					<h:inputText value="#{camisetaMB.camisetaEntity.descricao}"
-						required="true" id="descrição" label="Descrição" />
+					<h:inputText value="#{camisetaMB.camisetaEntity.descricao}" id="descrição" label="Descrição" />
 
 					<h:outputLabel class="control-label" value="Modelo" />
 					<h:inputText value="#{camisetaMB.camisetaEntity.modelo}"
-						required="true" id="modelo" label="Modelo" />
+						 id="modelo" label="Modelo" />
 
 					<h:outputLabel class="control-label" value="Quantidade" />
 					<h:inputText
 						value="#{camisetaMB.camisetaEntity.quantidadeEmEstoque}"
-						required="true" id="quantidade" label="Quantidade" />
+						 id="quantidade" label="Quantidade" />
+					
+					<h:outputLabel class="control-label" value="Preço" />
+					<h:inputText value="#{camisetaMB.camisetaEntity.preco}" id="preco" label="Preço"></h:inputText>
 				</div>
 
 				<div class="span10 offset1">
-		
-					<p:commandButton action="#{camisetaMB.actionCadastrarCamiseta}"
-						value="Cadastrar">
+					<p:commandButton action="#{camisetaMB.actionCadastrarCamiseta}" onkeypress="mascararPreco(this)" value="Cadastrar">
 					</p:commandButton>
-
-					<p:fileUpload value="#{camisetaMB.file}" mode="advanced" update="messages" auto="true" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>  
- 					<p:growl id="messages" showDetail="true"/>
 				</div>
 			</h:form>
-	 	<br/>
-	 	<h:outputText value="#{param['msg']}"  style="color: red;font-weight: bold;" styleClass="offset1"/>
+			
+			<br />
+			<h:outputText value="#{param['msg']}" style="color: red;font-weight: bold;" styleClass="offset1" />
 		</ui:define>
 	</ui:composition>
 </h:body>
