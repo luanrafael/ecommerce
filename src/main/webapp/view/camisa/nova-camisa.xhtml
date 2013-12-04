@@ -27,6 +27,7 @@
 						>
 						<f:selectItem itemValue="" itemLabel="Selecione" />
 						<f:selectItem itemValue="Adidas" itemLabel="Adidas" />
+						<f:selectItem itemValue="Pulma" itemLabel="Nike" />
 						<f:selectItem itemValue="Umbro" itemLabel="Umbro" />
 						<f:selectItem itemValue="Pulma" itemLabel="Pulma" />
 					</h:selectOneMenu>
@@ -44,8 +45,7 @@
 					</h:selectOneMenu>
 
 					<h:outputLabel class="control-label" value="Time" />
-					<h:selectOneMenu value="#{camisetaMB.camisetaEntity.time}"
-						>
+					<h:selectOneMenu value="#{camisetaMB.camisetaEntity.time}">
 						<f:selectItem itemValue="" itemLabel="Selecione" />
 						<f:selectItem itemValue="Atletico_PR" itemLabel="Atlético-PR" />
 						<f:selectItem itemValue="Atletico_MG" itemLabel="Atlético-MG" />
@@ -77,26 +77,23 @@
 					<h:inputText value="#{camisetaMB.camisetaEntity.descricao}" id="descrição" label="Descrição" />
 
 					<h:outputLabel class="control-label" value="Modelo" />
-					<h:inputText value="#{camisetaMB.camisetaEntity.modelo}"
-						 id="modelo" label="Modelo" />
+					<h:inputText value="#{camisetaMB.camisetaEntity.modelo}"  id="modelo" label="Modelo" />
 
 					<h:outputLabel class="control-label" value="Quantidade" />
-					<h:inputText
-						value="#{camisetaMB.camisetaEntity.quantidadeEmEstoque}"
-						 id="quantidade" label="Quantidade" />
+					<h:inputText value="#{camisetaMB.camisetaEntity.quantidadeEmEstoque}"  id="quantidade" label="Quantidade" />
 					
 					<h:outputLabel class="control-label" value="Preço" />
 					<h:inputText value="#{camisetaMB.camisetaEntity.preco}" id="preco" label="Preço"></h:inputText>
 				</div>
 
 				<div class="span10 offset1">
-					<p:commandButton action="#{camisetaMB.actionCadastrarCamiseta}" onkeypress="mascararPreco(this)" value="Cadastrar">
+					<p:commandButton action="#{camisetaMB.actionCadastrarCamiseta}" value="Cadastrar">
 					</p:commandButton>
 				</div>
 			</h:form>
 			
-			<br />
 			<h:outputText value="#{param['msg']}" style="color: red;font-weight: bold;" styleClass="offset1" />
+		
 		</ui:define>
 	</ui:composition>
 </h:body>

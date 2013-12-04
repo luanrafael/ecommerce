@@ -29,21 +29,20 @@ public class CamisetaEntity implements Serializable{
 	
 	private Double preco;
 
-	public StreamedContent getFileContent() {
-		return getInputImage();
-	}
-
-	public void setFileContent(StreamedContent fileContent) {
-		this.fileContent = fileContent;
-	}
-
-
 	@Transient
 	private StreamedContent fileContent;
 	
 	@Lob
 	private byte[] imagem;
 			
+	public StreamedContent getFileContent() {
+		return getInputImage();
+	}
+	
+	public void setFileContent(StreamedContent fileContent) {
+		this.fileContent = fileContent;
+	}
+
 	public Long getIdCamiseta() {
 		return idCamiseta;
 	}

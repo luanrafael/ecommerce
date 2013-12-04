@@ -7,7 +7,7 @@ import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ComponentSystemEvent;
 
@@ -18,7 +18,7 @@ import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class CamisetaMB implements Serializable {
 
 	private CamisetaEntity camisetaEntity;
@@ -56,19 +56,6 @@ public class CamisetaMB implements Serializable {
 	}
 
 	public void actionCadastrarCamiseta() {
-		try {
-			jsfUtils.redirecionar("upload.xhtml");
-		} catch (IOException e) {
-			try {
-				jsfUtils.redirecionar("nova-camisa.xhtml?msg=Falha no upload da imagem!");
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
-			e.printStackTrace();
-		}
-	}
-
-	public void upload(FileUploadEvent event) {
 		String msgEr = "Favor Preencher todos os campos!";
 		if (!camisetaEntity.hasNulo(msgEr)) {
 			try {
@@ -76,28 +63,34 @@ public class CamisetaMB implements Serializable {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		} else {
+		}
+		camisetaRepositorio.persist(camisetaEntity);
+		try {
+			jsfUtils.redirecionar("../../index.xhtml?msg=Produto cadastrado com sucesso!");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
-			file = event.getFile();
-			if (file != null) {
-				FacesMessage msg = new FacesMessage("Succesful",
-						file.getFileName() + " is uploaded.");
-				FacesContext.getCurrentInstance().addMessage(null, msg);
-				ByteArrayOutputStream bytesImg = new ByteArrayOutputStream();
-				try {
-					byte[] byteArray = file.getContents();
-					bytesImg.close();
-					camisetaEntity.setImagem(byteArray);
-					camisetaRepositorio.persist(camisetaEntity);
-					camisetaEntity = null;
-					jsfUtils.redirecionar("../../index.xhtml?msg=Produto cadastrado com sucesso!");
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+	public void upload(FileUploadEvent event) {
+		file = event.getFile();
+		if (file != null) {
+			FacesMessage msg = new FacesMessage("Succesful", file.getFileName()
+					+ " is uploaded.");
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+			ByteArrayOutputStream bytesImg = new ByteArrayOutputStream();
+			try {
+				byte[] byteArray = file.getContents();
+				bytesImg.close();
+				camisetaEntity.setImagem(byteArray);
+				camisetaEntity = null;
+				jsfUtils.redirecionar("../../index.xhtml?msg=Produto cadastrado com sucesso!");
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
 		}
 	}
-	
+
 	public void listarCamisetas(ComponentSystemEvent ev) {
 		setListaCamisetas(camisetaRepositorio.loadAll());
 		getListaCamisetas();
